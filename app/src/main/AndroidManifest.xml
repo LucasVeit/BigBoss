@@ -11,9 +11,12 @@
         android:theme="@style/Theme.BigBoss">
         <activity android:name=".telaEditarExercicio"></activity>
         <activity android:name=".telaPerguntasFrequentes" />
-        <activity android:name=".telaConfiguracao" />
-        <activity android:name=".teste2" />
-        <activity android:name=".telaTeste1" />
+        <activity android:name=".telaConfiguracao"
+            android:parentActivityName=".MainActivity"
+            >
+
+        </activity>
+
         <activity android:name=".telaInicio" />
         <activity android:name=".MainActivity">
             <intent-filter>

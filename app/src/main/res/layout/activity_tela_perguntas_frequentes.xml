@@ -6,4 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".telaPerguntasFrequentes">
 
+
+    <Button
+        android:id="@+id/angry_btn"
+
+        android:layout_width="300dp"
+        android:layout_height="49dp"
+        android:background="@drawable/buttonshape"
+
+        android:text="Tema"
+        android:textColor="#393E46"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="106dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
