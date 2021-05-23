@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="darkblue">#4475EE</color>
+    <color name="lightblue">#49BDFE</color>
+    <color name="background">#EBEBEB</color>
+    <color name="font">#393E46</color>
+    <color name="icon">#EAEAEA</color>
+    <color name="darkbutton">#C4C4C4</color>
+    <color name="fillbar">#FED049</color>
+    <color name="roundbar">#FDCA42</color>
+
 </resources>

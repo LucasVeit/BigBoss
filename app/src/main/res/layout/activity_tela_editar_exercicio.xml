@@ -15,12 +15,23 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+
         android:hint="Name"
+        app:startIconDrawable="@drawable/abc_vector_test"
+        app:helperText="Descrição de algo tipo required*"
+        app:helperTextTextColor="@color/darkblue"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:endIconMode="clear_text"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+
+            android:maxLength="20"
+
             android:id="@+id/textInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
