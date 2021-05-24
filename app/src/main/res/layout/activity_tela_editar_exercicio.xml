@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EBEBEB"
+    tools:context=".telaEditarExercicio"
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".telaEditarExercicio">
 
     <TextView
@@ -13,17 +20,18 @@
         android:layout_height="wrap_content"
 
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:drawableBottom="@drawable/ic_baseline_access_time_24"
+        android:drawableTop="@drawable/ic_baseline_access_time_24"
         android:drawablePadding="12dp"
         android:gravity="center"
-        android:hint="Lembrete"
+        android:hint="Horário"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputQuantidade" />
+        app:layout_constraintTop_toBottomOf="@+id/Reminder" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputNome"
@@ -168,4 +176,247 @@
             android:maxLength="3" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/Reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="24sp"
+        android:text="Lembrete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputPeriodo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputObjetivo"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+
+        android:drawablePadding="16dp"
+        android:hint="Objetivo"
+        app:counterEnabled="true"
+        app:counterMaxLength="3"
+        app:endIconMode="none"
+        app:helperText="Número de vezes que deseja realizar esse exercício"
+        app:helperTextTextColor="@color/darkblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputQuantidade"
+        app:startIconDrawable="@drawable/abc_vector_test">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditObjetivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="3" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputPeriodo"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+
+        android:drawablePadding="16dp"
+        android:hint="Período"
+        app:counterEnabled="true"
+        app:counterMaxLength="3"
+        app:endIconMode="none"
+        app:helperText="Período de tempo para realizar esse exercício"
+        app:helperTextTextColor="@color/darkblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputObjetivo"
+        app:startIconDrawable="@drawable/abc_vector_test">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditPeriodo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="3" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <View
+        android:id="@+id/viewDays"
+        android:layout_width="390dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_timer" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonDomingo"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_button_grey"
+        android:text="D"
+        android:textAllCaps="false"
+        android:textColor="@color/font"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewDays"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSegunda"
+        app:layout_constraintStart_toStartOf="@+id/viewDays"
+        app:layout_constraintTop_toTopOf="@+id/viewDays"
+        app:layout_constraintVertical_bias="0.533" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonSegunda"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_button_grey"
+        android:text="S"
+        android:textAllCaps="false"
+        android:textColor="@color/font"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewDays"
+        app:layout_constraintEnd_toStartOf="@+id/buttonTerca"
+        app:layout_constraintStart_toEndOf="@+id/buttonDomingo"
+        app:layout_constraintTop_toTopOf="@+id/viewDays"
+        app:layout_constraintVertical_bias="0.533" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonTerca"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_button_grey"
+        android:text="T"
+        android:textAllCaps="false"
+        android:textColor="@color/font"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewDays"
+        app:layout_constraintEnd_toStartOf="@+id/buttonQuarta"
+        app:layout_constraintStart_toEndOf="@+id/buttonSegunda"
+        app:layout_constraintTop_toTopOf="@+id/viewDays"
+        app:layout_constraintVertical_bias="0.533" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonQuarta"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_button_days_blue"
+        android:text="Q"
+        android:textAllCaps="false"
+        android:textColor="@color/icon"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewDays"
+        app:layout_constraintEnd_toStartOf="@+id/buttonQuinta"
+        app:layout_constraintStart_toEndOf="@+id/buttonTerca"
+        app:layout_constraintTop_toTopOf="@+id/viewDays"
+        app:layout_constraintVertical_bias="0.533" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonQuinta"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_button_days_blue"
+        android:text="Q"
+        android:textAllCaps="false"
+        android:textColor="@color/icon"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewDays"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSexta"
+        app:layout_constraintStart_toEndOf="@+id/buttonQuarta"
+        app:layout_constraintTop_toTopOf="@+id/viewDays"
+        app:layout_constraintVertical_bias="0.533" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonSexta"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_button_days_blue"
+        android:text="S"
+        android:textAllCaps="false"
+        android:textColor="@color/icon"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewDays"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSabado"
+        app:layout_constraintStart_toEndOf="@+id/buttonQuinta"
+        app:layout_constraintTop_toTopOf="@+id/viewDays"
+        app:layout_constraintVertical_bias="0.533" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonSabado"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_button_grey"
+        android:text="S"
+        android:textAllCaps="false"
+        android:textColor="@color/font"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewDays"
+        app:layout_constraintEnd_toEndOf="@+id/viewDays"
+        app:layout_constraintStart_toEndOf="@+id/buttonSexta"
+        app:layout_constraintTop_toTopOf="@+id/viewDays"
+        app:layout_constraintVertical_bias="0.533" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonCancelar"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+
+
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_button_grey"
+        android:text="Cancelar"
+        android:textAllCaps="false"
+        android:textColor="@color/font"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSalvar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewDays" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonSalvar"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="16dp"
+
+
+        android:background="@drawable/custom_button_blue"
+        android:text="Salvar"
+        android:textAllCaps="false"
+        android:textColor="@color/icon"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonCancelar"
+        app:layout_constraintTop_toBottomOf="@+id/viewDays" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

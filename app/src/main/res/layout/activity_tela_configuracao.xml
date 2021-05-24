@@ -8,7 +8,7 @@
     android:background="#E5E5E5">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonItem"
+        android:id="@+id/buttonTema"
         android:layout_width="0dp"
         android:layout_height="38dp"
         android:layout_marginStart="32dp"
@@ -17,7 +17,7 @@
         android:background="@drawable/custom_button"
         android:text="Tema"
         android:textAllCaps="false"
-        android:textColor="#393E46"
+        android:textColor="@color/font"
         android:textSize="18sp"
 
 
@@ -35,9 +35,10 @@
         android:text="Idioma"
         android:textAllCaps="false"
         android:textSize="18sp"
-        android:textColor="#393E46"
+        android:textColor="@color/font"
         android:background="@drawable/custom_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonItem" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonTema" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

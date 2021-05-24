@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -87,6 +88,11 @@ public class telaEditarExercicio extends AppCompatActivity {
             }
         });
     }
+
+    public void dayDomingo(View view){
+
+    }
+
 
 
 }
