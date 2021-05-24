@@ -11,5 +11,6 @@ public class telaConfiguracao extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_configuracao);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Configurações");
     }
 }

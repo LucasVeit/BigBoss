@@ -4,40 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#3566D3">
 
-    <Button
-        android:id="@+id/editarExercicio"
+
+    <TextView
+        android:id="@+id/NomeApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:onClick="editarExercicio"
-        android:text="Editar Exercicio"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="32dp"
+        android:text="BIG BOSS"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#EAEAEA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/configuracao"
+    <ImageView
+        android:id="@+id/imageLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:onClick="configuracao"
-        android:text="Configuração"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editarExercicio" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
-    <Button
-        android:id="@+id/perguntas"
+    <TextView
+        android:id="@+id/textNossosNomes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:onClick="perguntasFrequentes"
-        android:text="Perguntas Frequentes"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="685dp"
+        android:layout_marginEnd="32dp"
+        android:text="LeLu's"
+        android:textColor="#EAEAEA"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/configuracao" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

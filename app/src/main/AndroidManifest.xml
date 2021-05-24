@@ -9,18 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BigBoss">
-        <activity android:name=".telaEditarExercicio"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".telaPerguntasFrequentes"
-            android:parentActivityName=".MainActivity"
-            >
-        </activity>
-        <activity android:name=".telaConfiguracao"
-            android:parentActivityName=".MainActivity"
-            >
-
-        </activity>
-
+        <activity android:name=".HomeActivity"></activity>
+        <activity
+            android:name=".telaEditarExercicio"
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".telaPerguntasFrequentes"
+            android:parentActivityName=".HomeActivity"></activity>
+        <activity
+            android:name=".telaConfiguracao"
+            android:parentActivityName=".HomeActivity"></activity>
         <activity android:name=".telaInicio" />
         <activity android:name=".MainActivity">
             <intent-filter>
