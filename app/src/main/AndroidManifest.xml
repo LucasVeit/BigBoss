@@ -10,11 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BigBoss">
         <activity android:name=".telaEditarExercicio"></activity>
-        <activity android:name=".telaPerguntasFrequentes" />
+        <activity android:name=".telaPerguntasFrequentes"
+            android:parentActivityName=".MainActivity"
+            >
+        </activity>
         <activity android:name=".telaConfiguracao"
             android:parentActivityName=".MainActivity"
             >
-
         </activity>
 
         <activity android:name=".telaInicio" />

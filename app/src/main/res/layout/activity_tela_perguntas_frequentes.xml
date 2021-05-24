@@ -4,19 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".telaPerguntasFrequentes">
+    tools:context=".telaPerguntasFrequentes"
+    android:background="#E5E5E5">
 
-
-    <Button
-        android:id="@+id/angry_btn"
-
-        android:layout_width="300dp"
-        android:layout_height="49dp"
-        android:background="@drawable/buttonshape"
-
-        android:text="Tema"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonAddExerc"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="32dp"
+        android:text="Adicionar um Exercicio"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textSize="18sp"
         android:textColor="#393E46"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="106dp" />
+        android:background="@drawable/custom_buttonfaq"
+        android:drawableRight="@drawable/arrow_down"
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonExcExerc"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="#393E46"
+        android:background="@drawable/custom_buttonfaq"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="Excluir um Exercicio"
+        android:drawableRight="@drawable/arrow_down"
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddExerc" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonEditExerc"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="Editar um Exercicio"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="#393E46"
+        android:background="@drawable/custom_buttonfaq"
+        android:drawableRight="@drawable/arrow_down"
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonExcExerc" />
+
+    <TextView
+        android:id="@+id/CriadoPor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="270dp"
+        android:layout_marginBottom="32dp"
+        android:text="Desenvolvido por:"
+        android:textColor="#393E46"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/NossosNomes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="Leonardo Vanzin e Lucas Veit de Sá"
+        android:textColor="#393E46"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CriadoPor"
+        app:layout_constraintVertical_bias="0.0" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
