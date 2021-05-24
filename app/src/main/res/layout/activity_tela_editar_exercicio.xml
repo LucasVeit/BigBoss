@@ -113,6 +113,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditSeries"
+                android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="2" />
@@ -171,6 +172,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditQuantidade"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="3" />
@@ -212,6 +214,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditObjetivo"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="3" />
@@ -240,6 +243,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditPeriodo"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="3" />
@@ -263,7 +267,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/custom_button_grey"
+        android:background="@drawable/custom_button_days_grey"
         android:text="D"
         android:textAllCaps="false"
         android:textColor="@color/font"
@@ -280,7 +284,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/custom_button_grey"
+        android:background="@drawable/custom_button_days_grey"
         android:text="S"
         android:textAllCaps="false"
         android:textColor="@color/font"
@@ -297,7 +301,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/custom_button_grey"
+        android:background="@drawable/custom_button_days_grey"
         android:text="T"
         android:textAllCaps="false"
         android:textColor="@color/font"
@@ -366,7 +370,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/custom_button_grey"
+        android:background="@drawable/custom_button_days_grey"
         android:text="S"
         android:textAllCaps="false"
         android:textColor="@color/font"
