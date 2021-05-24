@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BigBoss">
-        <activity android:name=".telaEditarExercicio"></activity>
+        <activity android:name=".telaEditarExercicio"
+            android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".telaPerguntasFrequentes"
             android:parentActivityName=".MainActivity"
             >

@@ -7,33 +7,165 @@
     android:background="#EBEBEB"
     tools:context=".telaEditarExercicio">
 
+    <TextView
+        android:id="@+id/tv_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:drawableBottom="@drawable/ic_baseline_access_time_24"
+        android:drawablePadding="12dp"
+        android:gravity="center"
+        android:hint="Lembrete"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputQuantidade" />
+
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputNome"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/textInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
 
-        android:hint="Name"
-        app:startIconDrawable="@drawable/abc_vector_test"
-        app:helperText="Descrição de algo tipo required*"
-        app:helperTextTextColor="@color/darkblue"
+        android:drawablePadding="16dp"
+        android:hint="Nome"
         app:counterEnabled="true"
-        app:counterMaxLength="20"
+        app:counterMaxLength="30"
         app:endIconMode="clear_text"
-
+        app:helperText="Nome do exercício"
+        app:helperTextTextColor="@color/darkblue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/abc_vector_test">
 
         <com.google.android.material.textfield.TextInputEditText
-
-            android:maxLength="20"
-
-            android:id="@+id/textInputEditText"
+            android:id="@+id/textInputEditNome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:maxLength="30" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputDescricao"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+
+        android:drawablePadding="16dp"
+        android:hint="Objetivo / Descrição"
+        app:counterEnabled="true"
+        app:counterMaxLength="100"
+        app:endIconMode="clear_text"
+        app:helperText="Descrição do Exercício"
+        app:helperTextTextColor="@color/darkblue"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputNome"
+        app:startIconDrawable="@drawable/abc_vector_test">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="100" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputSeries"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+
+        android:drawablePadding="16dp"
+        android:hint="Séries"
+        app:counterEnabled="true"
+        app:counterMaxLength="2"
+        app:endIconMode="none"
+        app:helperText="Número de Séries do exercício"
+        app:helperTextTextColor="@color/darkblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputDescricao"
+        app:startIconDrawable="@drawable/abc_vector_test">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditSeries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="2" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputMetrica"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Métrica"
+        app:helperText="Métrica sendo utilizada"
+        app:helperTextTextColor="@color/darkblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputSeries"
+        app:startIconDrawable="@drawable/ic_baseline_access_time_24">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteMetrica"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="Minutos" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputQuantidade"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:drawablePadding="16dp"
+        android:hint="Quantidade"
+        app:counterEnabled="true"
+        app:counterMaxLength="3"
+        app:endIconMode="clear_text"
+        app:helperText="Quantidade do exercício"
+        app:helperTextTextColor="@color/darkblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputMetrica"
+        app:startIconDrawable="@drawable/abc_vector_test">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditQuantidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="3" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
