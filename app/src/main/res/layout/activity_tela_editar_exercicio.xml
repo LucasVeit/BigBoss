@@ -14,25 +14,6 @@
     android:layout_height="match_parent"
     tools:context=".telaEditarExercicio">
 
-    <TextView
-        android:id="@+id/tv_timer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:drawableTop="@drawable/ic_baseline_access_time_24"
-        android:drawablePadding="12dp"
-        android:gravity="center"
-        android:hint="Horário"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Reminder" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputNome"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -178,19 +159,6 @@
             android:maxLength="3" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/Reminder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:textSize="24sp"
-        android:text="Lembrete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputPeriodo" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputObjetivo"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -249,6 +217,37 @@
             android:maxLength="3" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/Reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Lembrete"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputPeriodo" />
+
+    <TextView
+        android:id="@+id/tv_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:drawableTop="@drawable/ic_baseline_access_time_24"
+        android:drawablePadding="12dp"
+        android:gravity="center"
+        android:hint="Horário"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Reminder" />
 
     <View
         android:id="@+id/viewDays"

@@ -27,4 +27,9 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, telaPerguntasFrequentes.class);
         startActivity(intent);
     }
+
+    public void adicionarExercicio(View view){
+        Intent intent = new Intent(this, telaAdicionarExercicio.class);
+        startActivity(intent);
+    }
 }

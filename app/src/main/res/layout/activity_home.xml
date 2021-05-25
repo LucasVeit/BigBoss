@@ -39,4 +39,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/configuracao" />
+
+
+
+    <Button
+        android:id="@+id/adcionarExercicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="adicionarExercicio"
+        android:text="Adicionar Exercícios"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/perguntas" />
 </androidx.constraintlayout.widget.ConstraintLayout>

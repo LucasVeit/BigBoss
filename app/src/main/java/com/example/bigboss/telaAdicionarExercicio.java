@@ -3,28 +3,19 @@ package com.example.bigboss;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-import org.w3c.dom.Text;
-
-import java.text.DateFormat;
-import java.text.Format;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import kotlin.text.StringsKt;
-
-public class telaEditarExercicio extends AppCompatActivity {
+public class telaAdicionarExercicio extends AppCompatActivity {
     //Variaveis do relógio
     TextView tvTimer;
     int tHour, tMin;
@@ -38,10 +29,10 @@ public class telaEditarExercicio extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_editar_exercicio);
+        setContentView(R.layout.activity_tela_adicionar_exercicio);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Editar Exercício");
+        getSupportActionBar().setTitle("Adicionar Exercício");
 
         //Reminder
         tvTimer = findViewById(R.id.tv_timer);
@@ -64,7 +55,7 @@ public class telaEditarExercicio extends AppCompatActivity {
             public void onClick(View v){
                 //inicializa a caixa de dialogo
                 TimePickerDialog timePickerDialog = new TimePickerDialog(
-                        telaEditarExercicio.this,
+                        telaAdicionarExercicio.this,
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -88,7 +79,4 @@ public class telaEditarExercicio extends AppCompatActivity {
             }
         });
     }
-
-
-
 }
