@@ -9,8 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BigBoss">
-        <activity android:name=".telaAdicionarExercicio"
-            android:parentActivityName=".HomeActivity"></activity>
+        <activity
+            android:name=".telaPerfil"
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".telaInfoExercicio"
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".telaAdicionarExercicio"
+            android:parentActivityName=".HomeActivity" />
         <activity android:name=".HomeActivity" />
         <activity
             android:name=".telaEditarExercicio"
@@ -21,7 +28,9 @@
         <activity
             android:name=".telaConfiguracao"
             android:parentActivityName=".HomeActivity" />
-        <activity android:name=".telaInicio" />
+        <activity
+            android:name=".telaInicio"
+            android:parentActivityName=".HomeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

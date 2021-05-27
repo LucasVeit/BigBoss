@@ -242,6 +242,7 @@
         android:drawablePadding="12dp"
         android:gravity="center"
         android:hint="Horário"
+        android:textColorHint="@color/font"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -396,12 +397,12 @@
         android:textColor="@color/font"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSalvar"
+        app:layout_constraintEnd_toStartOf="@+id/buttonEditar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewDays" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonSalvar"
+        android:id="@+id/buttonEditar"
         android:layout_width="0dp"
         android:layout_height="38dp"
         android:layout_marginStart="32dp"

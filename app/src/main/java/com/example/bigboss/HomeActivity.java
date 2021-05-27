@@ -32,4 +32,19 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, telaAdicionarExercicio.class);
         startActivity(intent);
     }
+
+    public void infoExercicio(View view){
+        Intent intent = new Intent(this, telaInfoExercicio.class);
+        startActivity(intent);
+    }
+
+    public void telaInicial(View view){
+        Intent intent = new Intent(this, telaInicio.class);
+        startActivity(intent);
+    }
+
+    public void telaPerfil(View view){
+        Intent intent = new Intent(this, telaPerfil.class);
+        startActivity(intent);
+    }
 }

@@ -5,7 +5,7 @@
     <item
         android:id="@+id/user"
         android:icon="@drawable/bar_user"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/home"
         android:icon="@drawable/bar_home"
@@ -15,6 +15,5 @@
         android:id="@+id/help"
         android:icon="@drawable/bar_helpcircle"
         app:showAsAction="ifRoom"/>
-
 
 </menu>

@@ -4,14 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class telaInicio extends AppCompatActivity {
+public class telaPerfil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_inicio);
+        setContentView(R.layout.activity_tela_perfil);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Editar Exercício");
+        getSupportActionBar().setTitle("Perfil do Usuário");
     }
 }

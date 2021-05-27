@@ -15,7 +15,8 @@
     <color name="icon">#EAEAEA</color>
     <color name="darkbutton">#C4C4C4</color>
     <color name="fillbar">#FED049</color>
-    <color name="roundbar">#FDCA42</color>
+    <color name="backbar">#A0FFD049</color>
+    <color name="roundbar">#BBBBBBBB</color>
     <color name="fieldsbackground">#F4F4F4</color>
 
 </resources>
