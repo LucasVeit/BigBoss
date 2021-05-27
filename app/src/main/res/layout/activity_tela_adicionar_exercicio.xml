@@ -33,7 +33,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:startIconDrawable="@drawable/abc_vector_test">
+            app:startIconDrawable="@drawable/user">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditNome"
@@ -62,7 +62,7 @@
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputNome"
-            app:startIconDrawable="@drawable/abc_vector_test">
+            app:startIconDrawable="@drawable/clipboard">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditDescricao"
@@ -90,7 +90,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputDescricao"
-            app:startIconDrawable="@drawable/abc_vector_test">
+            app:startIconDrawable="@drawable/repeat">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditSeries"
@@ -150,7 +150,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputMetrica"
-            app:startIconDrawable="@drawable/abc_vector_test">
+            app:startIconDrawable="@drawable/layers">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditQuantidade"
@@ -179,7 +179,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputQuantidade"
-            app:startIconDrawable="@drawable/abc_vector_test">
+            app:startIconDrawable="@drawable/award">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditObjetivo"
@@ -208,7 +208,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputObjetivo"
-            app:startIconDrawable="@drawable/abc_vector_test">
+            app:startIconDrawable="@drawable/calendar">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditPeriodo"
