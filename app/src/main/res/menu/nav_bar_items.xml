@@ -4,19 +4,16 @@
 
     <item
         android:id="@+id/user"
-        android:icon="@drawable/bar_home"
-        android:iconTint="@color/icon"
+        android:icon="@drawable/bar_user"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/home"
         android:icon="@drawable/bar_home"
-        android:iconTint="@color/icon"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/help"
         android:icon="@drawable/bar_helpcircle"
-        android:iconTint="@color/icon"
         app:showAsAction="ifRoom"/>
 
 
