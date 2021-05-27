@@ -12,6 +12,6 @@ public class telaInicio extends AppCompatActivity {
         setContentView(R.layout.activity_tela_inicio);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Editar Exercício");
+        getSupportActionBar().setTitle("Big Boss");
     }
 }
