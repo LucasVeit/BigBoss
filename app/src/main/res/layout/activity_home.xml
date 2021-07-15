@@ -98,5 +98,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_bar_items"
-        app:itemIconTint="@color/icon"/>
+        app:itemIconTint="@color/icon"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
