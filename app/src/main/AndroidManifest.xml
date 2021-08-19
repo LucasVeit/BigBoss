@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BigBoss">
+        <activity android:name=".Teste_Expandable" />
         <activity
             android:name=".telaPerfil"
             android:parentActivityName=".HomeActivity" />
