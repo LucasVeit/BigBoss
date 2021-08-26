@@ -113,10 +113,5 @@
                 android:textSize="18sp" />
         </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
 
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Desenvolvido por:\n                          Leonardo Vanzin e Lucas Veit de Sá" />
     </LinearLayout>
 </LinearLayout>

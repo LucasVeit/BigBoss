@@ -9,30 +9,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BigBoss">
-        <activity android:name=".Teste_Expandable" />
+
         <activity
             android:name=".telaPerfil"
+            android:screenOrientation="portrait"
             android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".telaInfoExercicio"
+            android:screenOrientation="portrait"
             android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".telaAdicionarExercicio"
             android:parentActivityName=".HomeActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".HomeActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".telaEditarExercicio"
+            android:screenOrientation="portrait"
             android:parentActivityName=".HomeActivity" />
         <activity
-            android:name=".telaPerguntasFrequentes"
+            android:name=".Teste_Expandable"
+            android:screenOrientation="portrait"
             android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".telaConfiguracao"
+            android:screenOrientation="portrait"
             android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".telaInicio"
+            android:screenOrientation="portrait"
             android:parentActivityName=".HomeActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
