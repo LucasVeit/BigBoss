@@ -3,6 +3,7 @@ package com.example.bigboss;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -89,6 +90,9 @@ public class telaEditarExercicio extends AppCompatActivity {
         });
     }
 
-
+    public void infoExercicio(View view){
+        Intent intent = new Intent(this, telaInfoExercicio.class);
+        startActivity(intent);
+    }
 
 }
