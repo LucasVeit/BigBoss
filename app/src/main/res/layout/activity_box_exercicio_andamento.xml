@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textNomeExercicio" />
 
     <TextView
-        android:id="@+id/textMetricaValor"
+        android:id="@+id/textInfoSeries"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMetricaValor" />
+        app:layout_constraintTop_toBottomOf="@+id/textInfoSeries" />
 
     <TextView
         android:id="@+id/textExercicioProgresso"
@@ -81,6 +81,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="34dp"
         android:layout_marginBottom="16dp"
+        android:onClick="UpdateExercicio"
         app:layout_constraintBottom_toTopOf="@+id/textExercicioProgresso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTempo"

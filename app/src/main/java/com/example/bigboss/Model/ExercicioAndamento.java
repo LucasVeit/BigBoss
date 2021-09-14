@@ -1,8 +1,11 @@
 package com.example.bigboss.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Calendar;
 
-public class ExercicioAndamento {
+public class ExercicioAndamento implements Parcelable {
     private int codigo;
     private String nome;
     private String descricao;
@@ -14,6 +17,48 @@ public class ExercicioAndamento {
     private int numeroDias;
     private Calendar dataInicio;
     private Lembrete lembrete;
+
+    protected ExercicioAndamento(Parcel in) {
+        codigo = in.readInt();
+        nome = in.readString();
+        descricao = in.readString();
+        serie = in.readInt();
+        metrica = in.readString();
+        quantidadeMetrica = in.readInt();
+        quantidadeRealizada = in.readInt();
+        quantidadeObjetivo = in.readInt();
+        numeroDias = in.readInt();
+    }
+
+    public static final Creator<ExercicioAndamento> CREATOR = new Creator<ExercicioAndamento>() {
+        @Override
+        public ExercicioAndamento createFromParcel(Parcel in) {
+            return new ExercicioAndamento(in);
+        }
+
+        @Override
+        public ExercicioAndamento[] newArray(int size) {
+            return new ExercicioAndamento[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(codigo);
+        parcel.writeString(nome);
+        parcel.writeString(descricao);
+        parcel.writeInt(serie);
+        parcel.writeString(metrica);
+        parcel.writeInt(quantidadeMetrica);
+        parcel.writeInt(quantidadeRealizada);
+        parcel.writeInt(quantidadeObjetivo);
+        parcel.writeInt(numeroDias);
+    }
 
     public ExercicioAndamento() {
     }
@@ -119,4 +164,5 @@ public class ExercicioAndamento {
     public void setLembrete(Lembrete lembrete) {
         this.lembrete = lembrete;
     }
+
 }

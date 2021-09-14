@@ -55,7 +55,6 @@ public class CreateSQLite extends SQLiteOpenHelper {
                 "sexta integer," +
                 "sabado integer," +
                 "foreign key(nomeExercicio) references exercicioAndamento(nome));";
-
         try{
             db.execSQL(criarUsuario);
             db.execSQL(criarLembrete);

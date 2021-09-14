@@ -1,6 +1,9 @@
 package com.example.bigboss.Model;
 
-public class Lembrete {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Lembrete implements Parcelable {
     private int codigo;
     private String nomeExercicio;
     private int hora;
@@ -29,6 +32,52 @@ public class Lembrete {
         this.sexta = sexta;
         this.sabado = sabado;
     }
+
+    protected Lembrete(Parcel in) {
+        codigo = in.readInt();
+        nomeExercicio = in.readString();
+        hora = in.readInt();
+        minuto = in.readInt();
+        domingo = in.readByte() != 0;
+        segunda = in.readByte() != 0;
+        terca = in.readByte() != 0;
+        quarta = in.readByte() != 0;
+        quinta = in.readByte() != 0;
+        sexta = in.readByte() != 0;
+        sabado = in.readByte() != 0;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(codigo);
+        parcel.writeString(nomeExercicio);
+        parcel.writeInt(hora);
+        parcel.writeInt(minuto);
+        parcel.writeByte((byte) (domingo ? 1 : 0));
+        parcel.writeByte((byte) (segunda ? 1 : 0));
+        parcel.writeByte((byte) (terca ? 1 : 0));
+        parcel.writeByte((byte) (quarta ? 1 : 0));
+        parcel.writeByte((byte) (quinta ? 1 : 0));
+        parcel.writeByte((byte) (sexta ? 1 : 0));
+        parcel.writeByte((byte) (sabado ? 1 : 0));
+    }
+
+    public static final Creator<Lembrete> CREATOR = new Creator<Lembrete>() {
+        @Override
+        public Lembrete createFromParcel(Parcel in) {
+            return new Lembrete(in);
+        }
+
+        @Override
+        public Lembrete[] newArray(int size) {
+            return new Lembrete[size];
+        }
+    };
 
     public int getCodigo() {
         return codigo;

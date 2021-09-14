@@ -46,6 +46,8 @@ public class ExercicioAndamentoDAO {
         dados.put("anoInicio", exercicioAndamento.getDataInicio().get(Calendar.YEAR));
 
         escrita.insert("ExercicioAndamento", null, dados);
+
+        lembreteDAO.InserirLembrete(exercicioAndamento.getLembrete());
     }
 
     public List<ExercicioAndamento> ListarExercicios(){

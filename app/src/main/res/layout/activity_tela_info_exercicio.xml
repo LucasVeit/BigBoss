@@ -190,18 +190,18 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/textMetricaValor"
+            android:id="@+id/textInfoSeries"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:text="Série: 3"
             android:textColor="@color/font"
             android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textInfoMetricaValor"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textInfoMetricaValor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
