@@ -18,7 +18,40 @@ public class ExercicioAndamento implements Parcelable {
     private int quantidadeObjetivo;
     private int numeroDias;
     private Calendar dataInicio;
-    private Lembrete lembrete;
+    private int hora;
+    private int minuto;
+    private boolean domingo;
+    private boolean segunda;
+    private boolean terca;
+    private boolean quarta;
+    private boolean quinta;
+    private boolean sexta;
+    private boolean sabado;
+
+    public ExercicioAndamento() {
+    }
+
+    public ExercicioAndamento(int codigo, String nome, String descricao, int serie, String metrica, int quantidadeMetrica, int quantidadeRealizada, int quantidadeObjetivo, int numeroDias, Calendar dataInicio, int hora, int minuto, boolean domingo, boolean segunda, boolean terca, boolean quarta, boolean quinta, boolean sexta, boolean sabado) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.serie = serie;
+        this.metrica = metrica;
+        this.quantidadeMetrica = quantidadeMetrica;
+        this.quantidadeRealizada = quantidadeRealizada;
+        this.quantidadeObjetivo = quantidadeObjetivo;
+        this.numeroDias = numeroDias;
+        this.dataInicio = dataInicio;
+        this.hora = hora;
+        this.minuto = minuto;
+        this.domingo = domingo;
+        this.segunda = segunda;
+        this.terca = terca;
+        this.quarta = quarta;
+        this.quinta = quinta;
+        this.sexta = sexta;
+        this.sabado = sabado;
+    }
 
     protected ExercicioAndamento(Parcel in) {
         codigo = in.readInt();
@@ -30,11 +63,19 @@ public class ExercicioAndamento implements Parcelable {
         quantidadeRealizada = in.readInt();
         quantidadeObjetivo = in.readInt();
         numeroDias = in.readInt();
+        hora = in.readInt();
+        minuto = in.readInt();
+        domingo = in.readByte() != 0;
+        segunda = in.readByte() != 0;
+        terca = in.readByte() != 0;
+        quarta = in.readByte() != 0;
+        quinta = in.readByte() != 0;
+        sexta = in.readByte() != 0;
+        sabado = in.readByte() != 0;
         Long milli = in.readLong();
         String timeZone = in.readString();
         dataInicio = new GregorianCalendar(TimeZone.getTimeZone(timeZone));
         dataInicio.setTimeInMillis(milli);
-
     }
 
     public static final Creator<ExercicioAndamento> CREATOR = new Creator<ExercicioAndamento>() {
@@ -48,43 +89,6 @@ public class ExercicioAndamento implements Parcelable {
             return new ExercicioAndamento[size];
         }
     };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(codigo);
-        parcel.writeString(nome);
-        parcel.writeString(descricao);
-        parcel.writeInt(serie);
-        parcel.writeString(metrica);
-        parcel.writeInt(quantidadeMetrica);
-        parcel.writeInt(quantidadeRealizada);
-        parcel.writeInt(quantidadeObjetivo);
-        parcel.writeInt(numeroDias);
-        parcel.writeLong(dataInicio.getTimeInMillis());
-        parcel.writeString(dataInicio.getTimeZone().getID());
-    }
-
-    public ExercicioAndamento() {
-    }
-
-    public ExercicioAndamento(int codigo, String nome, String descricao, int serie, String metrica, int quantidadeMetrica, int quantidadeRealizada, int quantidadeObjetivo, int numeroDias, Calendar dataInicio, Lembrete lembrete) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.serie = serie;
-        this.metrica = metrica;
-        this.quantidadeMetrica = quantidadeMetrica;
-        this.quantidadeRealizada = quantidadeRealizada;
-        this.quantidadeObjetivo = quantidadeObjetivo;
-        this.numeroDias = numeroDias;
-        this.dataInicio = dataInicio;
-        this.lembrete = lembrete;
-    }
 
     public int getCodigo() {
         return codigo;
@@ -166,12 +170,104 @@ public class ExercicioAndamento implements Parcelable {
         this.dataInicio = dataInicio;
     }
 
-    public Lembrete getLembrete() {
-        return lembrete;
+    public int getHora() {
+        return hora;
     }
 
-    public void setLembrete(Lembrete lembrete) {
-        this.lembrete = lembrete;
+    public void setHora(int hora) {
+        this.hora = hora;
     }
 
+    public int getMinuto() {
+        return minuto;
+    }
+
+    public void setMinuto(int minuto) {
+        this.minuto = minuto;
+    }
+
+    public boolean isDomingo() {
+        return domingo;
+    }
+
+    public void setDomingo(boolean domingo) {
+        this.domingo = domingo;
+    }
+
+    public boolean isSegunda() {
+        return segunda;
+    }
+
+    public void setSegunda(boolean segunda) {
+        this.segunda = segunda;
+    }
+
+    public boolean isTerca() {
+        return terca;
+    }
+
+    public void setTerca(boolean terca) {
+        this.terca = terca;
+    }
+
+    public boolean isQuarta() {
+        return quarta;
+    }
+
+    public void setQuarta(boolean quarta) {
+        this.quarta = quarta;
+    }
+
+    public boolean isQuinta() {
+        return quinta;
+    }
+
+    public void setQuinta(boolean quinta) {
+        this.quinta = quinta;
+    }
+
+    public boolean isSexta() {
+        return sexta;
+    }
+
+    public void setSexta(boolean sexta) {
+        this.sexta = sexta;
+    }
+
+    public boolean isSabado() {
+        return sabado;
+    }
+
+    public void setSabado(boolean sabado) {
+        this.sabado = sabado;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(codigo);
+        parcel.writeString(nome);
+        parcel.writeString(descricao);
+        parcel.writeInt(serie);
+        parcel.writeString(metrica);
+        parcel.writeInt(quantidadeMetrica);
+        parcel.writeInt(quantidadeRealizada);
+        parcel.writeInt(quantidadeObjetivo);
+        parcel.writeInt(numeroDias);
+        parcel.writeInt(hora);
+        parcel.writeInt(minuto);
+        parcel.writeByte((byte) (domingo ? 1 : 0));
+        parcel.writeByte((byte) (segunda ? 1 : 0));
+        parcel.writeByte((byte) (terca ? 1 : 0));
+        parcel.writeByte((byte) (quarta ? 1 : 0));
+        parcel.writeByte((byte) (quinta ? 1 : 0));
+        parcel.writeByte((byte) (sexta ? 1 : 0));
+        parcel.writeByte((byte) (sabado ? 1 : 0));
+        parcel.writeLong(dataInicio.getTimeInMillis());
+        parcel.writeString(dataInicio.getTimeZone().getID());
+    }
 }

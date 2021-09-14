@@ -1,13 +1,10 @@
 package com.example.bigboss;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -17,8 +14,6 @@ import android.widget.TimePicker;
 
 import com.example.bigboss.DAO.ExercicioAndamentoDAO;
 import com.example.bigboss.Model.ExercicioAndamento;
-import com.example.bigboss.Model.Lembrete;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
@@ -120,29 +115,39 @@ public class telaAdicionarExercicio extends AppCompatActivity {
     public void telaInicial (View view){
         Intent intent = new Intent(this, telaInicio.class);
         startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
     }
     public void infoExercicio(View view){
         Intent intent = new Intent(this, telaInfoExercicio.class);
         startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
     }
 
     public void AdicionarExercicio(View view){
-        ExercicioAndamento exercicio = new ExercicioAndamento();
-        exercicio.setNome(nome.getEditText().getText().toString());
-        exercicio.setDescricao(descricao.getEditText().getText().toString());
-        exercicio.setSerie(Integer.parseInt(series.getEditText().getText().toString()));
-        exercicio.setMetrica(metrica.getEditText().getText().toString());
-        exercicio.setQuantidadeMetrica(Integer.parseInt(quantidade.getEditText().getText().toString()));
-        exercicio.setQuantidadeObjetivo(Integer.parseInt(objetivo.getEditText().getText().toString()));
-        exercicio.setNumeroDias(Integer.parseInt(periodo.getEditText().getText().toString()));
-        exercicio.setQuantidadeRealizada(0);
-        exercicio.setDataInicio(Calendar.getInstance());
-
-        Lembrete lembrete = new Lembrete(0, nome.getEditText().getText().toString(), tHour, tMin, dom, seg, ter, qua, qui, sex, sab);
-        exercicio.setLembrete(lembrete);
+        ExercicioAndamento exercicioAndamento = new ExercicioAndamento();
+        exercicioAndamento.setNome(nome.getEditText().getText().toString());
+        exercicioAndamento.setDescricao(descricao.getEditText().getText().toString());
+        exercicioAndamento.setSerie(Integer.parseInt(series.getEditText().getText().toString()));
+        exercicioAndamento.setMetrica(metrica.getEditText().getText().toString());
+        exercicioAndamento.setQuantidadeMetrica(Integer.parseInt(quantidade.getEditText().getText().toString()));
+        exercicioAndamento.setQuantidadeObjetivo(Integer.parseInt(objetivo.getEditText().getText().toString()));
+        exercicioAndamento.setNumeroDias(Integer.parseInt(periodo.getEditText().getText().toString()));
+        exercicioAndamento.setQuantidadeRealizada(0);
+        exercicioAndamento.setDataInicio(Calendar.getInstance());
+        exercicioAndamento.setHora(tHour);
+        exercicioAndamento.setMinuto(tMin);
+        exercicioAndamento.setDomingo(dom);
+        exercicioAndamento.setSegunda(seg);
+        exercicioAndamento.setTerca(ter);
+        exercicioAndamento.setQuarta(qua);
+        exercicioAndamento.setQuinta(qui);
+        exercicioAndamento.setSexta(sex);
+        exercicioAndamento.setSabado(sab);
 
         ExercicioAndamentoDAO exercicioAndamentoDAO = new ExercicioAndamentoDAO(getApplicationContext());
-        exercicioAndamentoDAO.InserirExercicio(exercicio);
+        exercicioAndamentoDAO.InserirExercicio(exercicioAndamento);
         telaInicial(view);
     }
 

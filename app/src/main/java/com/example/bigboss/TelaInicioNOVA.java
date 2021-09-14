@@ -1,21 +1,17 @@
 package com.example.bigboss;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.LinearLayout;
 
 import com.example.bigboss.Controller.AdapterExercicioAndamento;
 import com.example.bigboss.DAO.ExercicioAndamentoDAO;
 import com.example.bigboss.Model.ExercicioAndamento;
-import com.example.bigboss.Model.Lembrete;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class TelaInicioNOVA extends AppCompatActivity {

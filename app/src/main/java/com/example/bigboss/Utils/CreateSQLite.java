@@ -32,19 +32,7 @@ public class CreateSQLite extends SQLiteOpenHelper {
                 "numeroDias integer," +
                 "diaInicio integer," +
                 "mesInicio integer," +
-                "anoInicio integer);";
-
-        String criarExercicioConcluido = "create table if not exists ExercicioConcluido(" +
-                "codigo integer primary key autoincrement," +
-                "nome text," +
-                "serie integer," +
-                "metrica text," +
-                "quantidadeMetrica integer," +
-                "quantidadeObjetivo integer);";
-
-        String criarLembrete ="create table if not exists Lembrete(" +
-                "codigo integer primary key autoincrement," +
-                "nomeExercicio text," +
+                "anoInicio integer," +
                 "hora integer," +
                 "minuto integer," +
                 "domingo integer," +
@@ -53,11 +41,17 @@ public class CreateSQLite extends SQLiteOpenHelper {
                 "quarta integer," +
                 "quinta integer," +
                 "sexta integer," +
-                "sabado integer," +
-                "foreign key(nomeExercicio) references exercicioAndamento(nome));";
+                "sabado integer);";
+
+        String criarExercicioConcluido = "create table if not exists ExercicioConcluido(" +
+                "codigo integer primary key autoincrement," +
+                "nome text," +
+                "serie integer," +
+                "metrica text," +
+                "quantidadeMetrica integer," +
+                "quantidadeObjetivo integer);";
         try{
             db.execSQL(criarUsuario);
-            db.execSQL(criarLembrete);
             db.execSQL(criarExercicioAndamento);
             db.execSQL(criarExercicioConcluido);
 
@@ -73,11 +67,9 @@ public class CreateSQLite extends SQLiteOpenHelper {
         String excluirUsuario = "drop table if exists usuario;";
         String excluirExercicioAndamento = "drop table if exists exercicioAndamento";
         String excluirExercicioConcluido = "drop table if exists exercicioConcluido";
-        String excluirLembrete = "drop table if exists lembrete";
 
         try{
             db.execSQL(excluirUsuario);
-            db.execSQL(excluirLembrete);
             db.execSQL(excluirExercicioAndamento);
             db.execSQL(excluirExercicioConcluido);
             onCreate(db);
