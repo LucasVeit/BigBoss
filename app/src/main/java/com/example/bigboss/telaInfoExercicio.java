@@ -2,7 +2,9 @@ package com.example.bigboss;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -27,5 +29,10 @@ public class telaInfoExercicio extends AppCompatActivity {
 
         progressBar.setProgress((100*value)/total);
         textProgressBar.setText(String.valueOf(value)+"/"+String.valueOf(total));
+    }
+
+    public void perguntasFrequentes(View view){
+        Intent intent = new Intent(this, Teste_Expandable.class);
+        startActivity(intent);
     }
 }
