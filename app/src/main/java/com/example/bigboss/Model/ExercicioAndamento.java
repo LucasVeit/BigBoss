@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 public class ExercicioAndamento implements Parcelable {
     private int codigo;
@@ -28,6 +30,11 @@ public class ExercicioAndamento implements Parcelable {
         quantidadeRealizada = in.readInt();
         quantidadeObjetivo = in.readInt();
         numeroDias = in.readInt();
+        Long milli = in.readLong();
+        String timeZone = in.readString();
+        dataInicio = new GregorianCalendar(TimeZone.getTimeZone(timeZone));
+        dataInicio.setTimeInMillis(milli);
+
     }
 
     public static final Creator<ExercicioAndamento> CREATOR = new Creator<ExercicioAndamento>() {
@@ -58,6 +65,8 @@ public class ExercicioAndamento implements Parcelable {
         parcel.writeInt(quantidadeRealizada);
         parcel.writeInt(quantidadeObjetivo);
         parcel.writeInt(numeroDias);
+        parcel.writeLong(dataInicio.getTimeInMillis());
+        parcel.writeString(dataInicio.getTimeZone().getID());
     }
 
     public ExercicioAndamento() {

@@ -95,7 +95,6 @@ public class telaInicio extends AppCompatActivity {
         Intent intent = new Intent(this, telaInfoExercicio.class);
         intent.putExtra("exercicio", exercicioAndamento);
         intent.putExtra("lembrete", exercicioAndamento.getLembrete());
-        intent.putExtra("diasRestantes", exercicioAndamento.getDataInicio().getTimeInMillis());
         startActivity(intent);
     }
     public void configuracao(View view){

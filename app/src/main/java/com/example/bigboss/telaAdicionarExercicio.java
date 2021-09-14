@@ -83,6 +83,12 @@ public class telaAdicionarExercicio extends AppCompatActivity {
         sex = true;
         sab = false;
 
+        tHour = 8;
+        tMin = 0;
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(0, 0, 0, tHour, tMin);
+        tvTimer.setText(android.text.format.DateFormat.format("HH:mm", calendar));
+
         tvTimer.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 //inicializa a caixa de dialogo
@@ -99,9 +105,9 @@ public class telaAdicionarExercicio extends AppCompatActivity {
                                 //Define a hora e minuto
                                 calendar.set(0, 0, 0, tHour, tMin);
                                 //Define o tempo selecionado no text view
-                                tvTimer.setText(android.text.format.DateFormat.format("h:mm a", calendar));
+                                tvTimer.setText(android.text.format.DateFormat.format("HH:mm", calendar));
                             }
-                        }, 12, 0, false
+                        }, 12, 0, true
                 );
                 //timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 // Mostra o tempo selecionado previamente

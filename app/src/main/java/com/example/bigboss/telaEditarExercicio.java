@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.bigboss.Model.ExercicioAndamento;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -32,6 +33,14 @@ public class telaEditarExercicio extends AppCompatActivity {
     //Variaveis do relógio
     TextView tvTimer;
     int tHour, tMin;
+    ExercicioAndamento exercicioAndamento;
+    TextInputLayout nome;
+    TextInputLayout descricao;
+    TextInputLayout series;
+    TextInputLayout quantidade;
+    TextInputLayout objetivo;
+    TextInputLayout periodo;
+
 
     BottomNavigationView bottomNavigationView;
 
@@ -52,17 +61,13 @@ public class telaEditarExercicio extends AppCompatActivity {
         //Reminder
         tvTimer = findViewById(R.id.tv_timer);
 
-        //métricas
-        metrica=(TextInputLayout)findViewById(R.id.textInputMetrica);
-        metricas=(AutoCompleteTextView)findViewById(R.id.autoCompleteMetrica);
-        arrayList_metricas = new ArrayList<>();
-        arrayList_metricas.add("Repetições");
-        arrayList_metricas.add("Minutos");
-        arrayList_metricas.add("Horas");
-        arrayList_metricas.add("Metros");
-        arrayList_metricas.add("Quilômetros");
-        arrayAdapter_metricas = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdownitem, arrayList_metricas);
-        metricas.setAdapter(arrayAdapter_metricas);
+        // Outros inputs
+        nome = (TextInputLayout)findViewById(R.id.textInputNome);
+        descricao = (TextInputLayout)findViewById(R.id.textInputDescricao);
+        series = (TextInputLayout)findViewById(R.id.textInputSeries);
+        quantidade = (TextInputLayout)findViewById(R.id.textInputQuantidade);
+        objetivo = (TextInputLayout)findViewById(R.id.textInputObjetivo);
+        periodo = (TextInputLayout)findViewById(R.id.textInputPeriodo);
 
 
 
@@ -93,6 +98,7 @@ public class telaEditarExercicio extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -110,6 +116,97 @@ public class telaEditarExercicio extends AppCompatActivity {
                 return false;
             }
         });
+
+        exercicioAndamento = getIntent().getParcelableExtra("exercicio");
+        exercicioAndamento.setLembrete(getIntent().getParcelableExtra("lembrete"));
+
+
+        nome.getEditText().setText(exercicioAndamento.getNome());
+        descricao.getEditText().setText(exercicioAndamento.getDescricao());
+        series.getEditText().setText(String.valueOf(exercicioAndamento.getSerie()));
+        quantidade.getEditText().setText(String.valueOf(exercicioAndamento.getQuantidadeMetrica()));
+        objetivo.getEditText().setText(String.valueOf(exercicioAndamento.getQuantidadeObjetivo()));
+        periodo.getEditText().setText(String.valueOf(exercicioAndamento.getNumeroDias()));
+
+        //métricas
+        metrica=(TextInputLayout)findViewById(R.id.textInputMetrica);
+        metricas=(AutoCompleteTextView)findViewById(R.id.autoCompleteMetrica);
+
+        metrica.getEditText().setText(exercicioAndamento.getMetrica());
+
+        arrayList_metricas = new ArrayList<>();
+        arrayList_metricas.add("Repetições");
+        arrayList_metricas.add("Minutos");
+        arrayList_metricas.add("Horas");
+        arrayList_metricas.add("Metros");
+        arrayList_metricas.add("Quilômetros");
+        arrayAdapter_metricas = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdownitem, arrayList_metricas);
+        metricas.setAdapter(arrayAdapter_metricas);
+
+        tHour = exercicioAndamento.getLembrete().getHora();
+        tMin = exercicioAndamento.getLembrete().getMinuto();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(0, 0, 0, tHour, tMin);
+        tvTimer.setText(android.text.format.DateFormat.format("HH:mm", calendar));
+
+        Button button;
+        button = findViewById(R.id.buttonDomingo);
+        if(!exercicioAndamento.getLembrete().isDomingo()){
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+            button.setTextColor(getResources().getColor(R.color.font));
+        }else{
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+            button.setTextColor(getResources().getColor(R.color.icon));
+        }
+        button = findViewById(R.id.buttonSegunda);
+        if(!exercicioAndamento.getLembrete().isSegunda()){
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+            button.setTextColor(getResources().getColor(R.color.font));
+        }else{
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+            button.setTextColor(getResources().getColor(R.color.icon));
+        }
+        button = findViewById(R.id.buttonTerca);
+        if(!exercicioAndamento.getLembrete().isTerca()){
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+            button.setTextColor(getResources().getColor(R.color.font));
+        }else{
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+            button.setTextColor(getResources().getColor(R.color.icon));
+        }
+        button = findViewById(R.id.buttonQuarta);
+        if(!exercicioAndamento.getLembrete().isQuarta()){
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+            button.setTextColor(getResources().getColor(R.color.font));
+        }else{
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+            button.setTextColor(getResources().getColor(R.color.icon));
+        }
+        button = findViewById(R.id.buttonQuinta);
+        if(!exercicioAndamento.getLembrete().isQuinta()){
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+            button.setTextColor(getResources().getColor(R.color.font));
+        }else{
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+            button.setTextColor(getResources().getColor(R.color.icon));
+        }
+        button = findViewById(R.id.buttonSexta);
+        if(!exercicioAndamento.getLembrete().isSexta()){
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+            button.setTextColor(getResources().getColor(R.color.font));
+        }else{
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+            button.setTextColor(getResources().getColor(R.color.icon));
+        }
+        button = findViewById(R.id.buttonSabado);
+        if(!exercicioAndamento.getLembrete().isSabado()){
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+            button.setTextColor(getResources().getColor(R.color.font));
+        }else{
+            button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+            button.setTextColor(getResources().getColor(R.color.icon));
+        }
+
     }
 
     public void infoExercicio(View view){
