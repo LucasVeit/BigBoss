@@ -297,6 +297,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/custom_button_grey"
+            android:onClick="excluirExercicio"
             android:text="Excluir"
             android:textAllCaps="false"
             android:textColor="@color/font"

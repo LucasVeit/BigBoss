@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.bigboss.DAO.ExercicioAndamentoDAO;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.example.bigboss.Model.ExercicioAndamento;
@@ -59,7 +60,6 @@ public class telaInfoExercicio extends AppCompatActivity {
         getSupportActionBar().setTitle("Informação Exercício");
 
         exercicioAndamento = getIntent().getParcelableExtra("exercicio");
-        exercicioAndamento.setLembrete(getIntent().getParcelableExtra("lembrete"));
 
         //Barra de Progresso
         progressBar = findViewById(R.id.exercicioProgresso1);
@@ -90,12 +90,12 @@ public class telaInfoExercicio extends AppCompatActivity {
         descricaoExercicio.setText(exercicioAndamento.getDescricao());
 
         Calendar calendar = Calendar.getInstance();
-        calendar.set(0, 0, 0, exercicioAndamento.getLembrete().getHora(), exercicioAndamento.getLembrete().getMinuto());
+        calendar.set(0, 0, 0, exercicioAndamento.getHora(), exercicioAndamento.getMinuto());
         lembrete.setText(android.text.format.DateFormat.format("HH:mm", calendar));
 
         Button button;
         button = findViewById(R.id.buttonDomingo);
-        if(!exercicioAndamento.getLembrete().isDomingo()){
+        if(!exercicioAndamento.isDomingo()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -103,7 +103,7 @@ public class telaInfoExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonSegunda);
-        if(!exercicioAndamento.getLembrete().isSegunda()){
+        if(!exercicioAndamento.isSegunda()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -111,7 +111,7 @@ public class telaInfoExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonTerca);
-        if(!exercicioAndamento.getLembrete().isTerca()){
+        if(!exercicioAndamento.isTerca()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -119,7 +119,7 @@ public class telaInfoExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonQuarta);
-        if(!exercicioAndamento.getLembrete().isQuarta()){
+        if(!exercicioAndamento.isQuarta()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -127,7 +127,7 @@ public class telaInfoExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonQuinta);
-        if(!exercicioAndamento.getLembrete().isQuinta()){
+        if(!exercicioAndamento.isQuinta()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -135,7 +135,7 @@ public class telaInfoExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonSexta);
-        if(!exercicioAndamento.getLembrete().isSexta()){
+        if(!exercicioAndamento.isSexta()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -143,7 +143,7 @@ public class telaInfoExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonSabado);
-        if(!exercicioAndamento.getLembrete().isSabado()){
+        if(!exercicioAndamento.isSabado()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -155,24 +155,42 @@ public class telaInfoExercicio extends AppCompatActivity {
     public void perguntasFrequentes(View view){
         Intent intent = new Intent(this, TelaPerguntasFrequente.class);
         startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
     }
     public void telaPerfilBottomNavigation(){
         Intent intent = new Intent(this, telaPerfil.class);
         startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
     }
     public void perguntasFrequentesBottomNavigation(){
         Intent intent = new Intent(this, TelaPerguntasFrequente.class);
         startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
     }
     public void telaInicialBottomNavigation(){
         Intent intent = new Intent(this, telaInicio.class);
         startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
     }
 
     public void editarExercicio(View view){
         Intent intent = new Intent(this, telaEditarExercicio.class);
         intent.putExtra("exercicio", exercicioAndamento);
-        intent.putExtra("lembrete", exercicioAndamento.getLembrete());
         startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
+    }
+
+    public void excluirExercicio(View view){
+        Intent intent = new Intent(this, telaInicio.class);
+        ExercicioAndamentoDAO exercicioAndamentoDAO = new ExercicioAndamentoDAO(getApplicationContext());
+        exercicioAndamentoDAO.ExcluirExercicio(exercicioAndamento.getCodigo());
+        startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
     }
 }
