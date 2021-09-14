@@ -1,13 +1,17 @@
 package com.example.bigboss;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.example.bigboss.Model.ExercicioAndamento;
 
@@ -25,6 +29,7 @@ public class telaInfoExercicio extends AppCompatActivity {
     TextView lembrete;
     TextView descricaoExercicio;
 
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +62,26 @@ public class telaInfoExercicio extends AppCompatActivity {
         progressBar.setProgress((100*exercicioAndamento.getQuantidadeRealizada())/exercicioAndamento.getQuantidadeObjetivo());
         textProgressBar.setText(String.valueOf(exercicioAndamento.getQuantidadeRealizada())+"/"+String.valueOf(exercicioAndamento.getQuantidadeObjetivo()));
 
+        progressBar.setProgress((100*value)/total);
+        textProgressBar.setText(String.valueOf(value)+"/"+String.valueOf(total));
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.user) {
+                    telaPerfilBottomNavigation();
+                }
+                else if (item.getItemId() == R.id.home) {
+                    telaInicialBottomNavigation();
+                }
+                else if (item.getItemId() == R.id.help) {
+                    perguntasFrequentesBottomNavigation();
+                }
+
+                return false;
+            }
+        });
         series.setText("Series: " + String.valueOf(exercicioAndamento.getSerie()));
         metricaValor.setText(exercicioAndamento.getMetrica() + ": " + String.valueOf(exercicioAndamento.getQuantidadeMetrica()));
         diasRestantes.setText(String.valueOf(dias) + " dias Restantes");
@@ -123,7 +148,19 @@ public class telaInfoExercicio extends AppCompatActivity {
     }
 
     public void perguntasFrequentes(View view){
-        Intent intent = new Intent(this, Teste_Expandable.class);
+        Intent intent = new Intent(this, TelaPerguntasFrequente.class);
+        startActivity(intent);
+    }
+    public void telaPerfilBottomNavigation(){
+        Intent intent = new Intent(this, telaPerfil.class);
+        startActivity(intent);
+    }
+    public void perguntasFrequentesBottomNavigation(){
+        Intent intent = new Intent(this, TelaPerguntasFrequente.class);
+        startActivity(intent);
+    }
+    public void telaInicialBottomNavigation(){
+        Intent intent = new Intent(this, telaInicio.class);
         startActivity(intent);
     }
 }

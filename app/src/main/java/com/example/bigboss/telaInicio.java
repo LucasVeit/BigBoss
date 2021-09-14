@@ -1,12 +1,13 @@
 package com.example.bigboss;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -20,7 +21,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class telaInicio extends AppCompatActivity {
+    BottomNavigationView bottomNavigationView;
     RecyclerView listaExercicios;
     List<ExercicioAndamento> listaBancoExercicios = new ArrayList<>();
     ExercicioAndamentoDAO exercicioAndamentoDAO;
@@ -44,6 +48,21 @@ public class telaInicio extends AppCompatActivity {
         listaExercicios.setAdapter(adaptador);
 
         getSupportActionBar().setTitle("Big Boss");
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.user) {
+                    telaPerfilBottomNavigation();
+                }
+
+                else if (item.getItemId() == R.id.help) {
+                    perguntasFrequentesBottomNavigation();
+                }
+
+                return false;
+            }
+        });
 
         listaExercicios.addOnItemTouchListener(
                 new RecyclerItemClickListener(
@@ -87,4 +106,13 @@ public class telaInicio extends AppCompatActivity {
         Intent intent = new Intent(this, telaPerfil.class);
         startActivity(intent);
     }
+    public void telaPerfilBottomNavigation(){
+        Intent intent = new Intent(this, telaPerfil.class);
+        startActivity(intent);
+    }
+    public void perguntasFrequentesBottomNavigation(){
+        Intent intent = new Intent(this, TelaPerguntasFrequente.class);
+        startActivity(intent);
+    }
+
 }

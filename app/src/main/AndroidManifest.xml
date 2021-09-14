@@ -34,7 +34,7 @@
             android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Teste_Expandable"
+            android:name=".TelaPerguntasFrequente"
             android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait" />
         <activity

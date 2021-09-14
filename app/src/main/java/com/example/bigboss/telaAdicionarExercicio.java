@@ -1,11 +1,13 @@
 package com.example.bigboss;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -16,6 +18,7 @@ import android.widget.TimePicker;
 import com.example.bigboss.DAO.ExercicioAndamentoDAO;
 import com.example.bigboss.Model.ExercicioAndamento;
 import com.example.bigboss.Model.Lembrete;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
@@ -108,7 +111,7 @@ public class telaAdicionarExercicio extends AppCompatActivity {
             }
         });
     }
-    public void telaInicial(View view){
+    public void telaInicial (View view){
         Intent intent = new Intent(this, telaInicio.class);
         startActivity(intent);
     }
