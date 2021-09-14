@@ -158,13 +158,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="3" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditObjetivo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="3" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -187,6 +180,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputQuantidade"
             app:startIconDrawable="@drawable/award">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditObjetivo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="3" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -428,10 +428,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonCancelar"
             app:layout_constraintTop_toBottomOf="@+id/viewDays" />
-
-
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
