@@ -87,8 +87,11 @@ public class telaInfoExercicio extends AppCompatActivity {
         series.setText("Series: " + String.valueOf(exercicioAndamento.getSerie()));
         metricaValor.setText(exercicioAndamento.getMetrica() + ": " + String.valueOf(exercicioAndamento.getQuantidadeMetrica()));
         diasRestantes.setText(String.valueOf(dias) + " dias Restantes");
-        lembrete.setText(String.valueOf(exercicioAndamento.getLembrete().getHora()) + ":" + String.valueOf(exercicioAndamento.getLembrete().getMinuto()));
         descricaoExercicio.setText(exercicioAndamento.getDescricao());
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(0, 0, 0, exercicioAndamento.getLembrete().getHora(), exercicioAndamento.getLembrete().getMinuto());
+        lembrete.setText(android.text.format.DateFormat.format("HH:mm", calendar));
 
         Button button;
         button = findViewById(R.id.buttonDomingo);

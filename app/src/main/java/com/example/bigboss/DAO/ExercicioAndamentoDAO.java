@@ -170,6 +170,8 @@ public class ExercicioAndamentoDAO {
 
         String[] cod = {String.valueOf(exercicioAndamento.getCodigo())};
         escrita.update("ExercicioAndamento", dados, "codigo = ?", cod);
+
+        lembreteDAO.AtualizarLembrete(exercicioAndamento.getLembrete());
     }
 
     public void ExcluirExercicio(int codigoExercicio){

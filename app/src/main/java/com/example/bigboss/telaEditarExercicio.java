@@ -16,7 +16,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.bigboss.DAO.ExercicioAndamentoDAO;
 import com.example.bigboss.Model.ExercicioAndamento;
+import com.example.bigboss.Model.Lembrete;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -49,6 +51,8 @@ public class telaEditarExercicio extends AppCompatActivity {
     AutoCompleteTextView metricas;
     ArrayList<String> arrayList_metricas;
     ArrayAdapter<String> arrayAdapter_metricas;
+
+    Boolean dom, seg, ter, qua, qui, sex, sab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,6 +153,16 @@ public class telaEditarExercicio extends AppCompatActivity {
         calendar.set(0, 0, 0, tHour, tMin);
         tvTimer.setText(android.text.format.DateFormat.format("HH:mm", calendar));
 
+
+
+
+        dom = exercicioAndamento.getLembrete().isDomingo();
+        seg = exercicioAndamento.getLembrete().isSegunda();
+        ter = exercicioAndamento.getLembrete().isTerca();
+        qua = exercicioAndamento.getLembrete().isQuarta();
+        qui = exercicioAndamento.getLembrete().isQuinta();
+        sex = exercicioAndamento.getLembrete().isSexta();
+        sab = exercicioAndamento.getLembrete().isSabado();
         Button button;
         button = findViewById(R.id.buttonDomingo);
         if(!exercicioAndamento.getLembrete().isDomingo()){
@@ -211,6 +225,8 @@ public class telaEditarExercicio extends AppCompatActivity {
 
     public void infoExercicio(View view){
         Intent intent = new Intent(this, telaInfoExercicio.class);
+        intent.putExtra("exercicio", exercicioAndamento);
+        intent.putExtra("lembrete", exercicioAndamento.getLembrete());
         startActivity(intent);
     }
     public void telaPerfilBottomNavigation(){
@@ -224,6 +240,109 @@ public class telaEditarExercicio extends AppCompatActivity {
     public void telaInicialBottomNavigation(){
         Intent intent = new Intent(this, telaInicio.class);
         startActivity(intent);
+    }
+
+    public void ChangeState(View view){
+        Button button;
+        switch(view.getId()){
+            case R.id.buttonDomingo:
+                button = findViewById(R.id.buttonDomingo);
+                if(dom){
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+                    button.setTextColor(getResources().getColor(R.color.font));
+                }else{
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+                    button.setTextColor(getResources().getColor(R.color.icon));
+                }
+                dom = !dom;
+                break;
+            case R.id.buttonSegunda:
+                button = findViewById(R.id.buttonSegunda);
+                if(seg){
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+                    button.setTextColor(getResources().getColor(R.color.font));
+                }else{
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+                    button.setTextColor(getResources().getColor(R.color.icon));
+                }
+                seg = !seg;
+                break;
+            case R.id.buttonTerca:
+                button = findViewById(R.id.buttonTerca);
+                if(ter){
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+                    button.setTextColor(getResources().getColor(R.color.font));
+                }else{
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+                    button.setTextColor(getResources().getColor(R.color.icon));
+                }
+                ter = !ter;
+                break;
+            case R.id.buttonQuarta:
+                button = findViewById(R.id.buttonQuarta);
+                if(qua){
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+                    button.setTextColor(getResources().getColor(R.color.font));
+                }else{
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+                    button.setTextColor(getResources().getColor(R.color.icon));
+                }
+                qua = !qua;
+                break;
+            case R.id.buttonQuinta:
+                button = findViewById(R.id.buttonQuinta);
+                if(qui){
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+                    button.setTextColor(getResources().getColor(R.color.font));
+                }else{
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+                    button.setTextColor(getResources().getColor(R.color.icon));
+                }
+                qui = !qui;
+                break;
+            case R.id.buttonSexta:
+                button = findViewById(R.id.buttonSexta);
+                if(sex){
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+                    button.setTextColor(getResources().getColor(R.color.font));
+                }else{
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+                    button.setTextColor(getResources().getColor(R.color.icon));
+                }
+                sex = !sex;
+                break;
+            case R.id.buttonSabado:
+                button = findViewById(R.id.buttonSabado);
+                if(sab){
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
+                    button.setTextColor(getResources().getColor(R.color.font));
+                }else{
+                    button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
+                    button.setTextColor(getResources().getColor(R.color.icon));
+                }
+                sab = !sab;
+                break;
+        }
+    }
+
+    public void EditarExercicio(View view){
+        exercicioAndamento.setNome(nome.getEditText().getText().toString());
+        exercicioAndamento.setDescricao(descricao.getEditText().getText().toString());
+        exercicioAndamento.setSerie(Integer.parseInt(series.getEditText().getText().toString()));
+        exercicioAndamento.setMetrica(metrica.getEditText().getText().toString());
+        exercicioAndamento.setQuantidadeMetrica(Integer.parseInt(quantidade.getEditText().getText().toString()));
+        exercicioAndamento.setQuantidadeObjetivo(Integer.parseInt(objetivo.getEditText().getText().toString()));
+        exercicioAndamento.setNumeroDias(Integer.parseInt(periodo.getEditText().getText().toString()));
+        exercicioAndamento.setQuantidadeRealizada(0);
+        exercicioAndamento.setDataInicio(Calendar.getInstance());
+
+        Lembrete lembrete = new Lembrete(0, nome.getEditText().getText().toString(), tHour, tMin, dom, seg, ter, qua, qui, sex, sab);
+        exercicioAndamento.setLembrete(lembrete);
+
+        ExercicioAndamentoDAO exercicioAndamentoDAO = new ExercicioAndamentoDAO(getApplicationContext());
+        exercicioAndamentoDAO.AtualizarExercicio(exercicioAndamento);
+
+        infoExercicio(view);
     }
 
 }
