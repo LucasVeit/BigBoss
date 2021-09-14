@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void perguntasFrequentes(View view){
-        Intent intent = new Intent(this, Teste_Expandable.class);
+        Intent intent = new Intent(this, TelaPerguntasFrequente.class);
         startActivity(intent);
     }
 

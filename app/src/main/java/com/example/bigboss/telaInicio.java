@@ -1,13 +1,17 @@
 package com.example.bigboss;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
-public class telaInicio extends AppCompatActivity {
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+public class telaInicio extends AppCompatActivity {
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +19,21 @@ public class telaInicio extends AppCompatActivity {
 
 
         getSupportActionBar().setTitle("Big Boss");
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.user) {
+                    telaPerfilBottomNavigation();
+                }
+
+                else if (item.getItemId() == R.id.help) {
+                    perguntasFrequentesBottomNavigation();
+                }
+
+                return false;
+            }
+        });
     }
 
     public void adicionarExercicio(View view){
@@ -33,4 +52,13 @@ public class telaInicio extends AppCompatActivity {
         Intent intent = new Intent(this, telaPerfil.class);
         startActivity(intent);
     }
+    public void telaPerfilBottomNavigation(){
+        Intent intent = new Intent(this, telaPerfil.class);
+        startActivity(intent);
+    }
+    public void perguntasFrequentesBottomNavigation(){
+        Intent intent = new Intent(this, TelaPerguntasFrequente.class);
+        startActivity(intent);
+    }
+
 }

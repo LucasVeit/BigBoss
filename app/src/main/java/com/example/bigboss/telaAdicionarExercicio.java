@@ -1,16 +1,19 @@
 package com.example.bigboss;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
@@ -27,6 +30,7 @@ public class telaAdicionarExercicio extends AppCompatActivity {
     ArrayList<String> arrayList_metricas;
     ArrayAdapter<String> arrayAdapter_metricas;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +43,8 @@ public class telaAdicionarExercicio extends AppCompatActivity {
         tvTimer = findViewById(R.id.tv_timer);
 
         //métricas
-        metrica=(TextInputLayout)findViewById(R.id.textInputMetrica);
-        metricas=(AutoCompleteTextView)findViewById(R.id.autoCompleteMetrica);
+        metrica = (TextInputLayout) findViewById(R.id.textInputMetrica);
+        metricas = (AutoCompleteTextView) findViewById(R.id.autoCompleteMetrica);
         arrayList_metricas = new ArrayList<>();
         arrayList_metricas.add("Repetições");
         arrayList_metricas.add("Minutos");
@@ -51,9 +55,8 @@ public class telaAdicionarExercicio extends AppCompatActivity {
         metricas.setAdapter(arrayAdapter_metricas);
 
 
-
-        tvTimer.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        tvTimer.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 //inicializa a caixa de dialogo
                 TimePickerDialog timePickerDialog = new TimePickerDialog(
                         telaAdicionarExercicio.this,
@@ -79,13 +82,11 @@ public class telaAdicionarExercicio extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
+
+
     }
-    public void telaInicial(View view){
+    public void telaInicial (View view){
         Intent intent = new Intent(this, telaInicio.class);
-        startActivity(intent);
-    }
-    public void infoExercicio(View view){
-        Intent intent = new Intent(this, telaInfoExercicio.class);
         startActivity(intent);
     }
 }

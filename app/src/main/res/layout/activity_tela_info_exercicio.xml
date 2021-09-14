@@ -303,7 +303,7 @@
             android:textAllCaps="false"
             android:textColor="@color/font"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
             app:layout_constraintEnd_toStartOf="@+id/buttonEditar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDescricaoExercicio" />
@@ -323,12 +323,24 @@
             android:textAllCaps="false"
             android:textColor="@color/icon"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonExcluir"
             app:layout_constraintTop_toBottomOf="@+id/textDescricaoExercicio" />
 
-
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/darkblue"
+            android:paddingTop="15dp"
+            app:itemIconTint="@color/icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/nav_bar_items" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </ScrollView>

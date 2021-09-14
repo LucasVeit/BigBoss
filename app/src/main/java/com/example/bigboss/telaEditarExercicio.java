@@ -1,5 +1,6 @@
 package com.example.bigboss;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -14,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.w3c.dom.Text;
@@ -29,6 +32,8 @@ public class telaEditarExercicio extends AppCompatActivity {
     //Variaveis do relógio
     TextView tvTimer;
     int tHour, tMin;
+
+    BottomNavigationView bottomNavigationView;
 
     //Dropdown Menu
     TextInputLayout metrica;
@@ -88,10 +93,39 @@ public class telaEditarExercicio extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.user) {
+                    telaPerfilBottomNavigation();
+                }
+                else if (item.getItemId() == R.id.home) {
+                    telaInicialBottomNavigation();
+                }
+                else if (item.getItemId() == R.id.help) {
+                    perguntasFrequentesBottomNavigation();
+                }
+
+                return false;
+            }
+        });
     }
 
     public void infoExercicio(View view){
         Intent intent = new Intent(this, telaInfoExercicio.class);
+        startActivity(intent);
+    }
+    public void telaPerfilBottomNavigation(){
+        Intent intent = new Intent(this, telaPerfil.class);
+        startActivity(intent);
+    }
+    public void perguntasFrequentesBottomNavigation(){
+        Intent intent = new Intent(this, TelaPerguntasFrequente.class);
+        startActivity(intent);
+    }
+    public void telaInicialBottomNavigation(){
+        Intent intent = new Intent(this, telaInicio.class);
         startActivity(intent);
     }
 
