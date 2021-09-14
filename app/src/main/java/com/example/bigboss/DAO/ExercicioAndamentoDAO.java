@@ -9,7 +9,6 @@ import android.util.Log;
 import com.example.bigboss.Utils.ConnectSQLite;
 import com.example.bigboss.Utils.CreateSQLite;
 import com.example.bigboss.Model.ExercicioAndamento;
-import com.example.bigboss.Model.Lembrete;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,11 +19,9 @@ public class ExercicioAndamentoDAO {
     private SQLiteDatabase leitura;
     private CreateSQLite banco;
     private ConnectSQLite connectionBanco;
-    LembreteDAO lembreteDAO;
 
     public ExercicioAndamentoDAO(Context ctx){
         connectionBanco = ConnectSQLite.getInstance(ctx);
-        lembreteDAO = new LembreteDAO(ctx);
         escrita = connectionBanco.getDatabase(true);
         leitura = connectionBanco.getDatabase(false);
     }
@@ -44,10 +41,31 @@ public class ExercicioAndamentoDAO {
         dados.put("diaInicio", exercicioAndamento.getDataInicio().get(Calendar.DAY_OF_MONTH));
         dados.put("mesInicio", exercicioAndamento.getDataInicio().get(Calendar.MONTH));
         dados.put("anoInicio", exercicioAndamento.getDataInicio().get(Calendar.YEAR));
+        dados.put("hora", exercicioAndamento.getHora());
+        dados.put("minuto", exercicioAndamento.getMinuto());
+        dados.put("domingo", Unbooleanizer(exercicioAndamento.isDomingo()));
+        dados.put("segunda", Unbooleanizer(exercicioAndamento.isSegunda()));
+        dados.put("terca", Unbooleanizer(exercicioAndamento.isTerca()));
+        dados.put("quarta", Unbooleanizer(exercicioAndamento.isQuarta()));
+        dados.put("quinta", Unbooleanizer(exercicioAndamento.isQuinta()));
+        dados.put("sexta", Unbooleanizer(exercicioAndamento.isSexta()));
+        dados.put("sabado", Unbooleanizer(exercicioAndamento.isSabado()));
 
         escrita.insert("ExercicioAndamento", null, dados);
+    }
+    public int Unbooleanizer(boolean value){
+        if(value)
+            return 1;
+        else
+            return 0;
 
-        lembreteDAO.InserirLembrete(exercicioAndamento.getLembrete());
+    }
+
+    public Boolean Booleanizer(int value){
+        if(value == 1)
+            return true;
+        else
+            return false;
     }
 
     public List<ExercicioAndamento> ListarExercicios(){
@@ -69,6 +87,16 @@ public class ExercicioAndamentoDAO {
         int indicediaInicio = cursor.getColumnIndex("diaInicio");
         int indicemesInicio = cursor.getColumnIndex("mesInicio");
         int indiceanoInicio = cursor.getColumnIndex("anoInicio");
+        int indicenomeExercicio = cursor.getColumnIndex("nomeExercicio");
+        int indicehora = cursor.getColumnIndex("hora");
+        int indiceminuto = cursor.getColumnIndex("minuto");
+        int indicedomingo = cursor.getColumnIndex("domingo");
+        int indicesegunda = cursor.getColumnIndex("segunda");
+        int indiceterca = cursor.getColumnIndex("terca");
+        int indicequarta = cursor.getColumnIndex("quarta");
+        int indicequinta = cursor.getColumnIndex("quinta");
+        int indicesexta = cursor.getColumnIndex("sexta");
+        int indicesabado = cursor.getColumnIndex("sabado");
 
         cursor.moveToFirst();
         Log.i("Banco", String.valueOf(exercicios.size()));
@@ -86,24 +114,26 @@ public class ExercicioAndamentoDAO {
             int diaInicio = cursor.getInt(indicediaInicio);
             int mesInicio = cursor.getInt(indicemesInicio);
             int anoInicio = cursor.getInt(indiceanoInicio);
-
-            Log.i("Banco", "Found 1");
-            Lembrete lembrete = lembreteDAO.BuscarLembrete(nome);
-
-            Log.i("Banco", "Found 2");
+            int hora = cursor.getInt(indicehora);
+            int minuto = cursor.getInt(indiceminuto);
+            boolean domingo = Booleanizer(cursor.getInt(indicedomingo));
+            boolean segunda = Booleanizer(cursor.getInt(indicesegunda));
+            boolean terca = Booleanizer(cursor.getInt(indiceterca));
+            boolean quarta = Booleanizer(cursor.getInt(indicequarta));
+            boolean quinta = Booleanizer(cursor.getInt(indicequinta));
+            boolean sexta = Booleanizer(cursor.getInt(indicesexta));
+            boolean sabado = Booleanizer(cursor.getInt(indicesabado));
 
             Calendar calendar = Calendar.getInstance();
             calendar.set(anoInicio, mesInicio, diaInicio);
 
-            ExercicioAndamento exercicio = new ExercicioAndamento(codigo, nome, descricao, serie, metrica, quantidadeMetrica, quantidadeRealizada, quantidadeObjetivo, numeroDias, calendar, lembrete);
+            ExercicioAndamento exercicio = new ExercicioAndamento(codigo, nome, descricao, serie, metrica, quantidadeMetrica, quantidadeRealizada, quantidadeObjetivo, numeroDias, calendar, hora, minuto, domingo, segunda, terca, quarta, quinta, sexta, sabado);
             exercicios.add(exercicio);
-
-            Log.i("Banco", "Found 3");
             cursor.moveToNext();
-
-            Log.i("Banco", "Found 4");
+            Log.i("Codigo exercício", String.valueOf(exercicio.getCodigo()));
         }
-        Log.i("Banco", String.valueOf(exercicios.size()));
+
+        Log.i("Numero exercícios", String.valueOf(exercicios.size()));
         return exercicios;
     }
 
@@ -126,6 +156,15 @@ public class ExercicioAndamentoDAO {
         int indicediaInicio = cursor.getColumnIndex("diaInicio");
         int indicemesInicio = cursor.getColumnIndex("mesInicio");
         int indiceanoInicio = cursor.getColumnIndex("anoInicio");
+        int indicehora = cursor.getColumnIndex("hora");
+        int indiceminuto = cursor.getColumnIndex("minuto");
+        int indicedomingo = cursor.getColumnIndex("domingo");
+        int indicesegunda = cursor.getColumnIndex("segunda");
+        int indiceterca = cursor.getColumnIndex("terca");
+        int indicequarta = cursor.getColumnIndex("quarta");
+        int indicequinta = cursor.getColumnIndex("quinta");
+        int indicesexta = cursor.getColumnIndex("sexta");
+        int indicesabado = cursor.getColumnIndex("sabado");
 
         cursor.moveToFirst();
 
@@ -140,14 +179,21 @@ public class ExercicioAndamentoDAO {
         int numeroDias = cursor.getInt(indicenumeroDias);
         int diaInicio = cursor.getInt(indicediaInicio);
         int mesInicio = cursor.getInt(indicemesInicio);
-        int anoInicio = cursor.getInt(indiceanoInicio);
-
-        Lembrete lembrete = lembreteDAO.BuscarLembrete(nome);
+        int anoInicio = cursor.getInt(indiceanoInicio);;
+        int hora = cursor.getInt(indicehora);
+        int minuto = cursor.getInt(indiceminuto);
+        boolean domingo = Booleanizer(cursor.getInt(indicedomingo));
+        boolean segunda = Booleanizer(cursor.getInt(indicesegunda));
+        boolean terca = Booleanizer(cursor.getInt(indiceterca));
+        boolean quarta = Booleanizer(cursor.getInt(indicequarta));
+        boolean quinta = Booleanizer(cursor.getInt(indicequinta));
+        boolean sexta = Booleanizer(cursor.getInt(indicesexta));
+        boolean sabado = Booleanizer(cursor.getInt(indicesabado));
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(anoInicio, mesInicio, diaInicio);
 
-        exercicio = new ExercicioAndamento(codigo, nome, descricao, serie, metrica, quantidadeMetrica, quantidadeRealizada, quantidadeObjetivo, numeroDias, calendar, lembrete);
+        exercicio = new ExercicioAndamento(codigo, nome, descricao, serie, metrica, quantidadeMetrica, quantidadeRealizada, quantidadeObjetivo, numeroDias, calendar, hora, minuto, domingo, segunda, terca, quarta, quinta, sexta, sabado);
 
         return exercicio;
     }
@@ -167,11 +213,17 @@ public class ExercicioAndamentoDAO {
         dados.put("diaInicio", exercicioAndamento.getDataInicio().get(Calendar.DAY_OF_MONTH));
         dados.put("mesInicio", exercicioAndamento.getDataInicio().get(Calendar.MONTH));
         dados.put("anoInicio", exercicioAndamento.getDataInicio().get(Calendar.YEAR));
-
+        dados.put("hora", exercicioAndamento.getHora());
+        dados.put("minuto", exercicioAndamento.getMinuto());
+        dados.put("domingo", Unbooleanizer(exercicioAndamento.isDomingo()));
+        dados.put("segunda", Unbooleanizer(exercicioAndamento.isSegunda()));
+        dados.put("terca", Unbooleanizer(exercicioAndamento.isTerca()));
+        dados.put("quarta", Unbooleanizer(exercicioAndamento.isQuarta()));
+        dados.put("quinta", Unbooleanizer(exercicioAndamento.isQuinta()));
+        dados.put("sexta", Unbooleanizer(exercicioAndamento.isSexta()));
+        dados.put("sabado", Unbooleanizer(exercicioAndamento.isSabado()));
         String[] cod = {String.valueOf(exercicioAndamento.getCodigo())};
         escrita.update("ExercicioAndamento", dados, "codigo = ?", cod);
-
-        lembreteDAO.AtualizarLembrete(exercicioAndamento.getLembrete());
     }
 
     public void ExcluirExercicio(int codigoExercicio){

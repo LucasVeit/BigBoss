@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,18 +16,11 @@ import android.widget.TimePicker;
 
 import com.example.bigboss.DAO.ExercicioAndamentoDAO;
 import com.example.bigboss.Model.ExercicioAndamento;
-import com.example.bigboss.Model.Lembrete;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
-import org.w3c.dom.Text;
-
-import java.text.DateFormat;
-import java.text.Format;
 import java.util.ArrayList;
 import java.util.Calendar;
-
-import kotlin.text.StringsKt;
 
 public class telaEditarExercicio extends AppCompatActivity {
     //Variaveis do relógio
@@ -122,7 +113,6 @@ public class telaEditarExercicio extends AppCompatActivity {
         });
 
         exercicioAndamento = getIntent().getParcelableExtra("exercicio");
-        exercicioAndamento.setLembrete(getIntent().getParcelableExtra("lembrete"));
 
 
         nome.getEditText().setText(exercicioAndamento.getNome());
@@ -147,8 +137,8 @@ public class telaEditarExercicio extends AppCompatActivity {
         arrayAdapter_metricas = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdownitem, arrayList_metricas);
         metricas.setAdapter(arrayAdapter_metricas);
 
-        tHour = exercicioAndamento.getLembrete().getHora();
-        tMin = exercicioAndamento.getLembrete().getMinuto();
+        tHour = exercicioAndamento.getHora();
+        tMin = exercicioAndamento.getMinuto();
         Calendar calendar = Calendar.getInstance();
         calendar.set(0, 0, 0, tHour, tMin);
         tvTimer.setText(android.text.format.DateFormat.format("HH:mm", calendar));
@@ -156,16 +146,16 @@ public class telaEditarExercicio extends AppCompatActivity {
 
 
 
-        dom = exercicioAndamento.getLembrete().isDomingo();
-        seg = exercicioAndamento.getLembrete().isSegunda();
-        ter = exercicioAndamento.getLembrete().isTerca();
-        qua = exercicioAndamento.getLembrete().isQuarta();
-        qui = exercicioAndamento.getLembrete().isQuinta();
-        sex = exercicioAndamento.getLembrete().isSexta();
-        sab = exercicioAndamento.getLembrete().isSabado();
+        dom = exercicioAndamento.isDomingo();
+        seg = exercicioAndamento.isSegunda();
+        ter = exercicioAndamento.isTerca();
+        qua = exercicioAndamento.isQuarta();
+        qui = exercicioAndamento.isQuinta();
+        sex = exercicioAndamento.isSexta();
+        sab = exercicioAndamento.isSabado();
         Button button;
         button = findViewById(R.id.buttonDomingo);
-        if(!exercicioAndamento.getLembrete().isDomingo()){
+        if(!exercicioAndamento.isDomingo()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -173,7 +163,7 @@ public class telaEditarExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonSegunda);
-        if(!exercicioAndamento.getLembrete().isSegunda()){
+        if(!exercicioAndamento.isSegunda()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -181,7 +171,7 @@ public class telaEditarExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonTerca);
-        if(!exercicioAndamento.getLembrete().isTerca()){
+        if(!exercicioAndamento.isTerca()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -189,7 +179,7 @@ public class telaEditarExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonQuarta);
-        if(!exercicioAndamento.getLembrete().isQuarta()){
+        if(!exercicioAndamento.isQuarta()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -197,7 +187,7 @@ public class telaEditarExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonQuinta);
-        if(!exercicioAndamento.getLembrete().isQuinta()){
+        if(!exercicioAndamento.isQuinta()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -205,7 +195,7 @@ public class telaEditarExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonSexta);
-        if(!exercicioAndamento.getLembrete().isSexta()){
+        if(!exercicioAndamento.isSexta()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -213,7 +203,7 @@ public class telaEditarExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
         button = findViewById(R.id.buttonSabado);
-        if(!exercicioAndamento.getLembrete().isSabado()){
+        if(!exercicioAndamento.isSabado()){
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_grey));
             button.setTextColor(getResources().getColor(R.color.font));
         }else{
@@ -226,9 +216,11 @@ public class telaEditarExercicio extends AppCompatActivity {
     public void infoExercicio(View view){
         Intent intent = new Intent(this, telaInfoExercicio.class);
         intent.putExtra("exercicio", exercicioAndamento);
-        intent.putExtra("lembrete", exercicioAndamento.getLembrete());
         startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
     }
+
     public void telaPerfilBottomNavigation(){
         Intent intent = new Intent(this, telaPerfil.class);
         startActivity(intent);
@@ -335,9 +327,15 @@ public class telaEditarExercicio extends AppCompatActivity {
         exercicioAndamento.setNumeroDias(Integer.parseInt(periodo.getEditText().getText().toString()));
         exercicioAndamento.setQuantidadeRealizada(0);
         exercicioAndamento.setDataInicio(Calendar.getInstance());
-
-        Lembrete lembrete = new Lembrete(0, nome.getEditText().getText().toString(), tHour, tMin, dom, seg, ter, qua, qui, sex, sab);
-        exercicioAndamento.setLembrete(lembrete);
+        exercicioAndamento.setHora(tHour);
+        exercicioAndamento.setMinuto(tMin);
+        exercicioAndamento.setDomingo(dom);
+        exercicioAndamento.setSegunda(seg);
+        exercicioAndamento.setTerca(ter);
+        exercicioAndamento.setQuarta(qua);
+        exercicioAndamento.setQuinta(qui);
+        exercicioAndamento.setSexta(sex);
+        exercicioAndamento.setSabado(sab);
 
         ExercicioAndamentoDAO exercicioAndamentoDAO = new ExercicioAndamentoDAO(getApplicationContext());
         exercicioAndamentoDAO.AtualizarExercicio(exercicioAndamento);
