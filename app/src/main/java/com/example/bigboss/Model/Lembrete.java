@@ -1,4 +1,4 @@
-package com.example.bigboss.model;
+package com.example.bigboss.Model;
 
 public class Lembrete {
     private int codigo;

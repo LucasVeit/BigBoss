@@ -1,4 +1,4 @@
-package com.example.bigboss.model;
+package com.example.bigboss.Model;
 
 import java.util.Calendar;
 

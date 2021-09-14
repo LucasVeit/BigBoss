@@ -39,7 +39,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void telaInicial(View view){
-        Intent intent = new Intent(this, telaInicio.class);
+        //Intent intent = new Intent(this, telaInicio.class);
+        Intent intent = new Intent(this, TelaInicioNOVA.class);
         startActivity(intent);
     }
 

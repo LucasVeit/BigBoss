@@ -1,17 +1,19 @@
-package com.example.bigboss.dao;
+package com.example.bigboss.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.bigboss.Utils.ConnectSQLite;
 import com.example.bigboss.Utils.CreateSQLite;
-import com.example.bigboss.model.ExercicioAndamento;
-import com.example.bigboss.model.Lembrete;
+import com.example.bigboss.Model.ExercicioAndamento;
+import com.example.bigboss.Model.Lembrete;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ExercicioAndamentoDAO {
     private SQLiteDatabase escrita;
@@ -46,8 +48,8 @@ public class ExercicioAndamentoDAO {
         escrita.insert("ExercicioAndamento", null, dados);
     }
 
-    public ArrayList<ExercicioAndamento> ListarExercicios(){
-        ArrayList<ExercicioAndamento> exercicios = new ArrayList<>();
+    public List<ExercicioAndamento> ListarExercicios(){
+        List<ExercicioAndamento> exercicios = new ArrayList<>();
         ContentValues dados;
 
         String sql = "SELECT * FROM ExercicioAndamento";
@@ -67,8 +69,9 @@ public class ExercicioAndamentoDAO {
         int indiceanoInicio = cursor.getColumnIndex("anoInicio");
 
         cursor.moveToFirst();
+        Log.i("Banco", String.valueOf(exercicios.size()));
 
-        while(cursor != null){
+        while(!cursor.isAfterLast()){
             int codigo = cursor.getInt(indicecodigo);
             String nome = cursor.getString(indicenome);
             String descricao = cursor.getString(indicedescricao);
@@ -82,16 +85,23 @@ public class ExercicioAndamentoDAO {
             int mesInicio = cursor.getInt(indicemesInicio);
             int anoInicio = cursor.getInt(indiceanoInicio);
 
+            Log.i("Banco", "Found 1");
             Lembrete lembrete = lembreteDAO.BuscarLembrete(nome);
+
+            Log.i("Banco", "Found 2");
 
             Calendar calendar = Calendar.getInstance();
             calendar.set(anoInicio, mesInicio, diaInicio);
 
             ExercicioAndamento exercicio = new ExercicioAndamento(codigo, nome, descricao, serie, metrica, quantidadeMetrica, quantidadeRealizada, quantidadeObjetivo, numeroDias, calendar, lembrete);
             exercicios.add(exercicio);
-            cursor.moveToNext();
-        }
 
+            Log.i("Banco", "Found 3");
+            cursor.moveToNext();
+
+            Log.i("Banco", "Found 4");
+        }
+        Log.i("Banco", String.valueOf(exercicios.size()));
         return exercicios;
     }
 

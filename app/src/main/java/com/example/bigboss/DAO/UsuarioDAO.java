@@ -1,4 +1,4 @@
-package com.example.bigboss.dao;
+package com.example.bigboss.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.bigboss.Utils.ConnectSQLite;
 import com.example.bigboss.Utils.CreateSQLite;
-import com.example.bigboss.model.Usuario;
+import com.example.bigboss.Model.Usuario;
 
 public class UsuarioDAO {
     private SQLiteDatabase escrita;

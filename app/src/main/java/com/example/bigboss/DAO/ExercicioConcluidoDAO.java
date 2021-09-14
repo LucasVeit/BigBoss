@@ -1,4 +1,4 @@
-package com.example.bigboss.dao;
+package com.example.bigboss.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,11 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.bigboss.Utils.ConnectSQLite;
 import com.example.bigboss.Utils.CreateSQLite;
-import com.example.bigboss.model.ExercicioConcluido;
-import com.example.bigboss.model.Lembrete;
+import com.example.bigboss.Model.ExercicioConcluido;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.List;
 
 public class ExercicioConcluidoDAO {
     private SQLiteDatabase escrita;
@@ -37,8 +36,8 @@ public class ExercicioConcluidoDAO {
         escrita.insert("ExercicioConcluido", null, dados);
     }
 
-    public ArrayList<ExercicioConcluido> ListarExercicios(){
-        ArrayList<ExercicioConcluido> exercicios = new ArrayList<>();
+    public List<ExercicioConcluido> ListarExercicios(){
+        List<ExercicioConcluido> exercicios = new ArrayList<>();
         ContentValues dados;
 
         String sql = "SELECT * FROM ExercicioConcluido";

@@ -1,4 +1,4 @@
-package com.example.bigboss.dao;
+package com.example.bigboss.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,10 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.bigboss.Utils.ConnectSQLite;
 import com.example.bigboss.Utils.CreateSQLite;
-import com.example.bigboss.model.Lembrete;
-import com.example.bigboss.model.Usuario;
+import com.example.bigboss.Model.Lembrete;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LembreteDAO {
     private SQLiteDatabase escrita;
@@ -43,8 +43,8 @@ public class LembreteDAO {
 
     }
 
-    public ArrayList<Lembrete> ListarLembretes(){
-        ArrayList<Lembrete> lembretes = new ArrayList<>();
+    public List<Lembrete> ListarLembretes(){
+        List<Lembrete> lembretes = new ArrayList<>();
         ContentValues dados;
 
         String sql = "SELECT * FROM lembrete";

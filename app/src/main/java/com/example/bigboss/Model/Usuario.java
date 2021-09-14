@@ -1,4 +1,4 @@
-package com.example.bigboss.model;
+package com.example.bigboss.Model;
 
 public class Usuario {
     private int codigo;
