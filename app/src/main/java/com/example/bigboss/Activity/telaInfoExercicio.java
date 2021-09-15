@@ -203,6 +203,5 @@ public class telaInfoExercicio extends AppCompatActivity {
                 usuario.setDivisao("BIG BOSS");
         }
         usuarioDAO.AtualizarUsuario(usuario);
-
     }
 }
