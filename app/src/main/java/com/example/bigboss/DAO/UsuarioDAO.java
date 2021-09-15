@@ -34,16 +34,19 @@ public class UsuarioDAO {
         int indiceImagem = cursor.getColumnIndex("imagem");
 
         cursor.moveToFirst();
-        int codigo = cursor.getInt(indiceCodigo);
-        String nome = cursor.getString(indiceNome);
-        String divisao = cursor.getString(indiceDivisao);
-        int level = cursor.getInt(indiceLevel);
-        int xp = cursor.getInt(indiceXp);
-        byte[] imagem = cursor.getBlob(indiceImagem);
+        if(!cursor.isAfterLast()){
+            int codigo = cursor.getInt(indiceCodigo);
+            String nome = cursor.getString(indiceNome);
+            String divisao = cursor.getString(indiceDivisao);
+            int level = cursor.getInt(indiceLevel);
+            int xp = cursor.getInt(indiceXp);
+            byte[] imagem = cursor.getBlob(indiceImagem);
 
-        usuario = new Usuario(codigo, nome, divisao, level, xp, imagem);
+            usuario = new Usuario(codigo, nome, divisao, level, xp, imagem);
+        }else{
+        usuario = new Usuario(0, "", "", 0, 0, null);
+        }
         return usuario;
-
     }
 
     public void CriarUsuario(Usuario usuario){
@@ -55,7 +58,7 @@ public class UsuarioDAO {
         dados.put("divisao", usuario.getDivisao());
         dados.put("level", usuario.getLevel());
         dados.put("xp", usuario.getXp());
-        dados.put("imagem", usuario.getNome());
+        dados.put("imagem", usuario.getImagem());
 
         escrita.insert("Usuario", null, dados);
 
@@ -69,7 +72,7 @@ public class UsuarioDAO {
         dados.put("divisao", usuario.getDivisao());
         dados.put("level", usuario.getLevel());
         dados.put("xp", usuario.getXp());
-        dados.put("imagem", usuario.getNome());
+        dados.put("imagem", usuario.getImagem());
 
         String[] cod = {String.valueOf(usuario.getCodigo())};
         escrita.update("Usuario", dados, "codigo = ?", cod);

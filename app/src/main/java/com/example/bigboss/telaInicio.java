@@ -7,14 +7,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bigboss.Controller.AdapterExercicioAndamento;
 import com.example.bigboss.DAO.ExercicioAndamentoDAO;
+import com.example.bigboss.DAO.UsuarioDAO;
 import com.example.bigboss.Model.ExercicioAndamento;
+import com.example.bigboss.Model.Usuario;
 import com.example.bigboss.Utils.RecyclerItemClickListener;
 
 import java.io.Serializable;
@@ -29,6 +34,13 @@ public class telaInicio extends AppCompatActivity {
     List<ExercicioAndamento> listaBancoExercicios = new ArrayList<>();
     ExercicioAndamentoDAO exercicioAndamentoDAO;
     AdapterExercicioAndamento adaptador;
+    TextView nomeUsuario;
+    TextView divisao;
+    ProgressBar barraNivel;
+    TextView level;
+    TextView exp;
+    TextView expMax;
+    int idClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +55,30 @@ public class telaInicio extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         listaExercicios.setLayoutManager(layoutManager);
         listaExercicios.setHasFixedSize(true);
+        nomeUsuario = findViewById(R.id.nomeUsuario);
+        divisao = findViewById(R.id.textDivisao);
+        barraNivel = findViewById(R.id.progressBar);
+        level = findViewById(R.id.textLevel);
+        exp = findViewById(R.id.textViewExp);
+        expMax = findViewById(R.id.textExpMax);
+
+        UsuarioDAO usuarioDAO = new UsuarioDAO(getApplicationContext());
+        Usuario usuario = usuarioDAO.buscarUsuario();
+        if(usuario.getCodigo() == 0){
+            usuario.setCodigo(1);
+            usuario.setDivisao("Frango");
+            usuario.setNome("The Boss");
+            usuario.setLevel(1);
+            usuario.setXp(0);
+            usuarioDAO.CriarUsuario(usuario);
+        }
+        nomeUsuario.setText(usuario.getNome());
+        divisao.setText("Divisão " + String.valueOf(usuario.getDivisao()));
+        barraNivel.setProgress((100*usuario.getXp())/usuario.getLevel()*100);
+        level.setText(String.valueOf(usuario.getLevel()));
+        exp.setText(String.valueOf(usuario.getXp()));
+        expMax.setText(String.valueOf(usuario.getLevel() * 100));
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         listaExercicios.setAdapter(adaptador);
@@ -72,11 +108,13 @@ public class telaInicio extends AppCompatActivity {
                             @Override
                             public void onItemClick(View view, int position) {
                                 ExercicioAndamento exercicio = listaBancoExercicios.get( position );
+
                                 OpeninfoExercicio(view, exercicio);
                             }
                             @Override
                             public void onItemClick(AdapterView<?> adapterView,
                                                     View view, int i, long l) {
+
                             }
                         }
                 )
@@ -94,6 +132,8 @@ public class telaInicio extends AppCompatActivity {
     public void OpeninfoExercicio(View view, ExercicioAndamento exercicioAndamento){
         Intent intent = new Intent(this, telaInfoExercicio.class);
         intent.putExtra("exercicio", exercicioAndamento);
+        Log.i("Posição", String.valueOf(view.getId()));
+
 
         startActivity(intent);
     }

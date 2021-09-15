@@ -1,5 +1,7 @@
 package com.example.bigboss.Model;
 
+import android.graphics.Bitmap;
+
 public class Usuario {
     private int codigo;
     private String nome;

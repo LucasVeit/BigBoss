@@ -102,7 +102,7 @@ public class telaAdicionarExercicio extends AppCompatActivity {
                                 //Define o tempo selecionado no text view
                                 tvTimer.setText(android.text.format.DateFormat.format("HH:mm", calendar));
                             }
-                        }, 12, 0, true
+                        }, 12, 0, false
                 );
                 //timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 // Mostra o tempo selecionado previamente

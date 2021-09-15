@@ -82,7 +82,7 @@ public class telaEditarExercicio extends AppCompatActivity {
                                 //Define a hora e minuto
                                 calendar.set(0, 0, 0, tHour, tMin);
                                 //Define o tempo selecionado no text view
-                                tvTimer.setText(android.text.format.DateFormat.format("h:mm a", calendar));
+                                tvTimer.setText(android.text.format.DateFormat.format("HH:mm", calendar));
                             }
                         }, 12, 0, false
                 );
@@ -142,9 +142,6 @@ public class telaEditarExercicio extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         calendar.set(0, 0, 0, tHour, tMin);
         tvTimer.setText(android.text.format.DateFormat.format("HH:mm", calendar));
-
-
-
 
         dom = exercicioAndamento.isDomingo();
         seg = exercicioAndamento.isSegunda();
