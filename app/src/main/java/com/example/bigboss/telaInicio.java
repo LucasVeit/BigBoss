@@ -44,7 +44,7 @@ public class telaInicio extends AppCompatActivity {
         listaExercicios.setLayoutManager(layoutManager);
         listaExercicios.setHasFixedSize(true);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         listaExercicios.setAdapter(adaptador);
 
         getSupportActionBar().setTitle("Big Boss");

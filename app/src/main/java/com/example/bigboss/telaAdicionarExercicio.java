@@ -44,7 +44,7 @@ public class telaAdicionarExercicio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_adicionar_exercicio);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getSupportActionBar().setTitle("Adicionar Exercício");
 
         //Reminder
