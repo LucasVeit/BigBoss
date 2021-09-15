@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.bigboss.Controller.AdapterExercicioAndamento;
 import com.example.bigboss.Controller.AdapterExercicioConcluido;
 import com.example.bigboss.DAO.ExercicioConcluidoDAO;
 import com.example.bigboss.DAO.UsuarioDAO;
@@ -103,6 +104,10 @@ public class telaPerfil extends AppCompatActivity {
         final View popupView = getLayoutInflater().inflate(R.layout.popup, null);
         novoNome = (EditText) popupView.findViewById(R.id.novoNome);
 
+        UsuarioDAO usuarioDAO = new UsuarioDAO(getApplicationContext());
+        Usuario usuario = usuarioDAO.buscarUsuario();
+        novoNome.setText(usuario.getNome());
+
         botaoCancelar = (Button) popupView.findViewById(R.id.BotaoCancelar);
         botaoSalvar = (Button) popupView.findViewById(R.id.BotaoSalvar);
 
@@ -114,7 +119,15 @@ public class telaPerfil extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                //funcionalidade do botao
+                UsuarioDAO usuarioDAO = new UsuarioDAO(getApplicationContext());
+                Usuario usuario = usuarioDAO.buscarUsuario();
+
+                usuario.setNome(novoNome.getText().toString());
+                usuarioDAO.AtualizarUsuario(usuario);
+                dialog.dismiss();
+
+                nomeUsuario.setText(usuario.getNome());
+
             }
         });
 
