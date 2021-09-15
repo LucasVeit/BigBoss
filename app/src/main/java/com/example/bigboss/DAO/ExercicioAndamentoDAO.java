@@ -99,7 +99,6 @@ public class ExercicioAndamentoDAO {
         int indicesabado = cursor.getColumnIndex("sabado");
 
         cursor.moveToFirst();
-        Log.i("Banco", String.valueOf(exercicios.size()));
 
         while(!cursor.isAfterLast()){
             int codigo = cursor.getInt(indicecodigo);
@@ -130,72 +129,23 @@ public class ExercicioAndamentoDAO {
             ExercicioAndamento exercicio = new ExercicioAndamento(codigo, nome, descricao, serie, metrica, quantidadeMetrica, quantidadeRealizada, quantidadeObjetivo, numeroDias, calendar, hora, minuto, domingo, segunda, terca, quarta, quinta, sexta, sabado);
             exercicios.add(exercicio);
             cursor.moveToNext();
-            Log.i("Codigo exercício", String.valueOf(exercicio.getCodigo()));
         }
 
-        Log.i("Numero exercícios", String.valueOf(exercicios.size()));
         return exercicios;
     }
 
-    public ExercicioAndamento BuscarExercicio(String nomeExercicio){
+    public boolean BuscarExercicio(String nomeExercicio){
         ExercicioAndamento exercicio;
         ContentValues dados;
 
         String sql = "SELECT * FROM ExercicioAndamento where nome = \"" + nomeExercicio + "\";";
         Cursor cursor = leitura.rawQuery(sql, null);
 
-        int indicecodigo = cursor.getColumnIndex("codigo");
-        int indicenome = cursor.getColumnIndex("nome");
-        int indicedescricao = cursor.getColumnIndex("descricao");
-        int indiceserie = cursor.getColumnIndex("serie");
-        int indicemetrica = cursor.getColumnIndex("metrica");
-        int indicequantidadeMetrica = cursor.getColumnIndex("quantidadeMetrica");
-        int indicequantidadeRealizada = cursor.getColumnIndex("quantidadeRealizada");
-        int indicequantidadeObjetivo = cursor.getColumnIndex("quantidadeObjetivo");
-        int indicenumeroDias = cursor.getColumnIndex("numeroDias");
-        int indicediaInicio = cursor.getColumnIndex("diaInicio");
-        int indicemesInicio = cursor.getColumnIndex("mesInicio");
-        int indiceanoInicio = cursor.getColumnIndex("anoInicio");
-        int indicehora = cursor.getColumnIndex("hora");
-        int indiceminuto = cursor.getColumnIndex("minuto");
-        int indicedomingo = cursor.getColumnIndex("domingo");
-        int indicesegunda = cursor.getColumnIndex("segunda");
-        int indiceterca = cursor.getColumnIndex("terca");
-        int indicequarta = cursor.getColumnIndex("quarta");
-        int indicequinta = cursor.getColumnIndex("quinta");
-        int indicesexta = cursor.getColumnIndex("sexta");
-        int indicesabado = cursor.getColumnIndex("sabado");
-
         cursor.moveToFirst();
-
-        int codigo = cursor.getInt(indicecodigo);
-        String nome = cursor.getString(indicenome);
-        String descricao = cursor.getString(indicedescricao);
-        int serie = cursor.getInt(indiceserie);
-        String metrica = cursor.getString(indicemetrica);
-        int quantidadeMetrica = cursor.getInt(indicequantidadeMetrica);
-        int quantidadeRealizada = cursor.getInt(indicequantidadeRealizada);
-        int quantidadeObjetivo = cursor.getInt(indicequantidadeObjetivo);
-        int numeroDias = cursor.getInt(indicenumeroDias);
-        int diaInicio = cursor.getInt(indicediaInicio);
-        int mesInicio = cursor.getInt(indicemesInicio);
-        int anoInicio = cursor.getInt(indiceanoInicio);;
-        int hora = cursor.getInt(indicehora);
-        int minuto = cursor.getInt(indiceminuto);
-        boolean domingo = Booleanizer(cursor.getInt(indicedomingo));
-        boolean segunda = Booleanizer(cursor.getInt(indicesegunda));
-        boolean terca = Booleanizer(cursor.getInt(indiceterca));
-        boolean quarta = Booleanizer(cursor.getInt(indicequarta));
-        boolean quinta = Booleanizer(cursor.getInt(indicequinta));
-        boolean sexta = Booleanizer(cursor.getInt(indicesexta));
-        boolean sabado = Booleanizer(cursor.getInt(indicesabado));
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(anoInicio, mesInicio, diaInicio);
-
-        exercicio = new ExercicioAndamento(codigo, nome, descricao, serie, metrica, quantidadeMetrica, quantidadeRealizada, quantidadeObjetivo, numeroDias, calendar, hora, minuto, domingo, segunda, terca, quarta, quinta, sexta, sabado);
-
-        return exercicio;
+        if(!cursor.isAfterLast())
+            return true;
+        else
+            return false;
     }
 
     public void AtualizarExercicio(ExercicioAndamento exercicioAndamento){
@@ -223,6 +173,7 @@ public class ExercicioAndamentoDAO {
         dados.put("sexta", Unbooleanizer(exercicioAndamento.isSexta()));
         dados.put("sabado", Unbooleanizer(exercicioAndamento.isSabado()));
         String[] cod = {String.valueOf(exercicioAndamento.getCodigo())};
+
         escrita.update("ExercicioAndamento", dados, "codigo = ?", cod);
 
     }

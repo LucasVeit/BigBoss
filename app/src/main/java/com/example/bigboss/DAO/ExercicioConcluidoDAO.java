@@ -52,7 +52,7 @@ public class ExercicioConcluidoDAO {
 
         cursor.moveToFirst();
 
-        while(cursor != null){
+        while(!cursor.isAfterLast()){
             int codigo = cursor.getInt(indicecodigo);
             String nome = cursor.getString(indicenome);
             int serie = cursor.getInt(indiceserie);

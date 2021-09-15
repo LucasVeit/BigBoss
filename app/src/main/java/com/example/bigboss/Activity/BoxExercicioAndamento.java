@@ -1,10 +1,10 @@
-package com.example.bigboss;
+package com.example.bigboss.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+
+import com.example.bigboss.R;
 
 public class BoxExercicioAndamento extends AppCompatActivity {
 
@@ -13,4 +13,5 @@ public class BoxExercicioAndamento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_box_exercicio_andamento);
     }
+
 }

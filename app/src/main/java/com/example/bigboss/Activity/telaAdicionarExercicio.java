@@ -1,4 +1,4 @@
-package com.example.bigboss;
+package com.example.bigboss.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import android.widget.TimePicker;
 
 import com.example.bigboss.DAO.ExercicioAndamentoDAO;
 import com.example.bigboss.Model.ExercicioAndamento;
+import com.example.bigboss.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;

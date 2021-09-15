@@ -1,15 +1,13 @@
-package com.example.bigboss;
+package com.example.bigboss.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.bigboss.DAO.UsuarioDAO;
-import com.example.bigboss.Model.Usuario;
+import com.example.bigboss.R;
 
 public class MainActivity extends AppCompatActivity {
 

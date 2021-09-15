@@ -1,12 +1,9 @@
-package com.example.bigboss;
+package com.example.bigboss.Activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -17,7 +14,7 @@ import com.example.bigboss.DAO.ExercicioConcluidoDAO;
 import com.example.bigboss.DAO.UsuarioDAO;
 import com.example.bigboss.Model.ExercicioConcluido;
 import com.example.bigboss.Model.Usuario;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.bigboss.R;
 
 import com.example.bigboss.Model.ExercicioAndamento;
 
@@ -142,15 +139,6 @@ public class telaInfoExercicio extends AppCompatActivity {
     }
 
 
-
-    public void perguntasFrequentes(View view){
-        Intent intent = new Intent(this, TelaPerguntasFrequente.class);
-        startActivity(intent);
-        finish();
-        overridePendingTransition(0, 0);
-    }
-
-
     public void editarExercicio(View view){
         Intent intent = new Intent(this, telaEditarExercicio.class);
         intent.putExtra("exercicio", exercicioAndamento);
@@ -170,30 +158,23 @@ public class telaInfoExercicio extends AppCompatActivity {
 
     public void updateExercicio(View view){
         ExercicioAndamentoDAO exercicioAndamentoDAO = new ExercicioAndamentoDAO(getApplicationContext());
-        exercicioAndamentoDAO.AtualizarExercicio(exercicioAndamento);
         ExercicioConcluidoDAO exercicioConcluidoDAO = new ExercicioConcluidoDAO(getApplicationContext());
         if(exercicioAndamento.getQuantidadeRealizada() < exercicioAndamento.getQuantidadeObjetivo()){
             exercicioAndamento.setQuantidadeRealizada(exercicioAndamento.getQuantidadeRealizada() + 1);
-
-            Intent intent = new Intent(this, telaInfoExercicio.class);
-            intent.putExtra("exercicio", exercicioAndamento);
-            startActivity(intent);
-            finish();
-            overridePendingTransition(0, 0);
-            IncrementarXP(2);
-        }else{
+            exercicioAndamentoDAO.AtualizarExercicio(exercicioAndamento);
+            IncrementarXP(5);
+        }
+        if(exercicioAndamento.getQuantidadeRealizada() == exercicioAndamento.getQuantidadeObjetivo() && exercicioAndamentoDAO.BuscarExercicio(exercicioAndamento.getNome())){
             ExercicioConcluido exercicioConcluido = new ExercicioConcluido(exercicioAndamento.getCodigo(), exercicioAndamento.getNome(), exercicioAndamento.getSerie(), exercicioAndamento.getMetrica(), exercicioAndamento.getQuantidadeMetrica(), exercicioAndamento.getQuantidadeObjetivo());
-            IncrementarXP(30);
             exercicioAndamentoDAO.ExcluirExercicio(exercicioAndamento.getCodigo());
             exercicioConcluidoDAO.InserirExercicio(exercicioConcluido);
-
+            IncrementarXP(30);
         }
         Intent intent = new Intent(this, telaInfoExercicio.class);
         intent.putExtra("exercicio", exercicioAndamento);
         startActivity(intent);
         finish();
         overridePendingTransition(0, 0);
-
     }
 
     public void IncrementarXP(int quantidade){

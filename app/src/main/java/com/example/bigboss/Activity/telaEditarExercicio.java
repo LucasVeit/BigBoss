@@ -1,12 +1,10 @@
-package com.example.bigboss;
+package com.example.bigboss.Activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -16,7 +14,7 @@ import android.widget.TimePicker;
 
 import com.example.bigboss.DAO.ExercicioAndamentoDAO;
 import com.example.bigboss.Model.ExercicioAndamento;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.bigboss.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
@@ -33,9 +31,6 @@ public class telaEditarExercicio extends AppCompatActivity {
     TextInputLayout quantidade;
     TextInputLayout objetivo;
     TextInputLayout periodo;
-
-
-
 
     //Dropdown Menu
     TextInputLayout metrica;
@@ -299,7 +294,7 @@ public class telaEditarExercicio extends AppCompatActivity {
         exercicioAndamento.setQuantidadeMetrica(Integer.parseInt(quantidade.getEditText().getText().toString()));
         exercicioAndamento.setQuantidadeObjetivo(Integer.parseInt(objetivo.getEditText().getText().toString()));
         exercicioAndamento.setNumeroDias(Integer.parseInt(periodo.getEditText().getText().toString()));
-        exercicioAndamento.setQuantidadeRealizada(0);
+        exercicioAndamento.setQuantidadeRealizada(exercicioAndamento.getQuantidadeRealizada());
         exercicioAndamento.setDataInicio(Calendar.getInstance());
         exercicioAndamento.setHora(tHour);
         exercicioAndamento.setMinuto(tMin);

@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EBEBEB"
-    tools:context=".telaEditarExercicio"
+    tools:context=".Activity.telaEditarExercicio"
     >
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".telaEditarExercicio">
+    tools:context=".Activity.telaEditarExercicio">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputNome"
@@ -418,7 +418,7 @@
 
         android:layout_marginBottom="32dp"
         android:background="@drawable/custom_button_blue"
-        android:onClick="telaInicial"
+        android:onClick="EditarExercicio"
         android:text="Salvar"
         android:textAllCaps="false"
         android:textColor="@color/icon"

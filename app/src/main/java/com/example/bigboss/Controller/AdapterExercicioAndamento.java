@@ -62,7 +62,6 @@ public class AdapterExercicioAndamento extends RecyclerView.Adapter<AdapterExerc
         TextView tempo;
         TextView exercicioProgresso;
         ProgressBar progressoExercicio;
-        ImageView checkbox;
 
         public MyViewHolder(View itemView) {
             super(itemView);

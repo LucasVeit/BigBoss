@@ -7,12 +7,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EBEBEB"
-    tools:context=".telaAdicionarExercicio">>
+    tools:context=".Activity.telaAdicionarExercicio">>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".telaAdicionarExercicio">
+        tools:context=".Activity.telaAdicionarExercicio">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputNome"

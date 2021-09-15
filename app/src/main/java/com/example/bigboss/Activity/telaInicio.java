@@ -1,4 +1,4 @@
-package com.example.bigboss;
+package com.example.bigboss.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,16 +13,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.bigboss.Controller.AdapterExercicioAndamento;
 import com.example.bigboss.DAO.ExercicioAndamentoDAO;
 import com.example.bigboss.DAO.UsuarioDAO;
 import com.example.bigboss.Model.ExercicioAndamento;
 import com.example.bigboss.Model.Usuario;
+import com.example.bigboss.R;
 import com.example.bigboss.Utils.RecyclerItemClickListener;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +32,7 @@ public class telaInicio extends AppCompatActivity {
     RecyclerView listaExercicios;
     List<ExercicioAndamento> listaBancoExercicios = new ArrayList<>();
     ExercicioAndamentoDAO exercicioAndamentoDAO;
+    UsuarioDAO usuarioDAO;
     AdapterExercicioAndamento adaptador;
     TextView nomeUsuario;
     TextView divisao;
@@ -62,7 +62,7 @@ public class telaInicio extends AppCompatActivity {
         exp = findViewById(R.id.textViewExp);
         expMax = findViewById(R.id.textExpMax);
 
-        UsuarioDAO usuarioDAO = new UsuarioDAO(getApplicationContext());
+        usuarioDAO = new UsuarioDAO(getApplicationContext());
         Usuario usuario = usuarioDAO.buscarUsuario();
         if(usuario.getCodigo() == 0){
             usuario.setCodigo(1);
@@ -108,7 +108,6 @@ public class telaInicio extends AppCompatActivity {
                             @Override
                             public void onItemClick(View view, int position) {
                                 ExercicioAndamento exercicio = listaBancoExercicios.get( position );
-                                Log.i("Teste", String.valueOf(position));
                                 OpeninfoExercicio(view, exercicio);
                             }
                             @Override
@@ -133,9 +132,8 @@ public class telaInicio extends AppCompatActivity {
     public void OpeninfoExercicio(View view, ExercicioAndamento exercicioAndamento){
         Intent intent = new Intent(this, telaInfoExercicio.class);
         intent.putExtra("exercicio", exercicioAndamento);
-
-
         startActivity(intent);
+
     }
     public void configuracao(View view){
         Intent intent = new Intent(this, telaConfiguracao.class);
@@ -152,6 +150,25 @@ public class telaInicio extends AppCompatActivity {
     public void perguntasFrequentesBottomNavigation(){
         Intent intent = new Intent(this, TelaPerguntasFrequente.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        Usuario usuario = usuarioDAO.buscarUsuario();
+        nomeUsuario.setText(usuario.getNome());
+        divisao.setText("Divisão " + String.valueOf(usuario.getDivisao()));
+        barraNivel.setProgress((100*usuario.getXp())/usuario.getLevel()*100);
+        level.setText("Leval " + String.valueOf(usuario.getLevel()));
+        exp.setText(String.valueOf(usuario.getXp()));
+        expMax.setText(String.valueOf(usuario.getLevel() * 100));
+
+
+        listaBancoExercicios = exercicioAndamentoDAO.ListarExercicios();
+        adaptador = new AdapterExercicioAndamento(listaBancoExercicios);
+        listaExercicios.setAdapter(adaptador);
+
     }
 
 }

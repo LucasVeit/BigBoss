@@ -44,7 +44,7 @@ public class UsuarioDAO {
 
             usuario = new Usuario(codigo, nome, divisao, level, xp, imagem);
         }else{
-        usuario = new Usuario(0, "", "", 0, 0, null);
+            usuario = new Usuario(0, "", "", 0, 0, null);
         }
         return usuario;
     }
