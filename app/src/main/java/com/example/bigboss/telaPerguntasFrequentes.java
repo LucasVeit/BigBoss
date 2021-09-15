@@ -12,5 +12,6 @@ public class telaPerguntasFrequentes extends AppCompatActivity {
         setContentView(R.layout.activity_tela_perguntas_frequentes);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Perguntas Frequentes");
+
     }
 }

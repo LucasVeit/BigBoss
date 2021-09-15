@@ -135,7 +135,6 @@ public class telaInfoExercicio extends AppCompatActivity {
             button.setTextColor(getResources().getColor(R.color.icon));
         }
 
-
     }
 
 
@@ -163,18 +162,22 @@ public class telaInfoExercicio extends AppCompatActivity {
             exercicioAndamento.setQuantidadeRealizada(exercicioAndamento.getQuantidadeRealizada() + 1);
             exercicioAndamentoDAO.AtualizarExercicio(exercicioAndamento);
             IncrementarXP(5);
+            Intent intent = new Intent(this, telaInfoExercicio.class);
+            intent.putExtra("exercicio", exercicioAndamento);
+            startActivity(intent);
+            finish();
+            overridePendingTransition(0, 0);
         }
-        if(exercicioAndamento.getQuantidadeRealizada() == exercicioAndamento.getQuantidadeObjetivo() && exercicioAndamentoDAO.BuscarExercicio(exercicioAndamento.getNome())){
+        if(exercicioAndamento.getQuantidadeRealizada() == exercicioAndamento.getQuantidadeObjetivo()){
             ExercicioConcluido exercicioConcluido = new ExercicioConcluido(exercicioAndamento.getCodigo(), exercicioAndamento.getNome(), exercicioAndamento.getSerie(), exercicioAndamento.getMetrica(), exercicioAndamento.getQuantidadeMetrica(), exercicioAndamento.getQuantidadeObjetivo());
             exercicioAndamentoDAO.ExcluirExercicio(exercicioAndamento.getCodigo());
             exercicioConcluidoDAO.InserirExercicio(exercicioConcluido);
             IncrementarXP(30);
+            Intent intent = new Intent(this, telaInicio.class);
+            startActivity(intent);
+            finish();
+            overridePendingTransition(0, 0);
         }
-        Intent intent = new Intent(this, telaInfoExercicio.class);
-        intent.putExtra("exercicio", exercicioAndamento);
-        startActivity(intent);
-        finish();
-        overridePendingTransition(0, 0);
     }
 
     public void IncrementarXP(int quantidade){
