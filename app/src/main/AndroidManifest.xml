@@ -16,23 +16,17 @@
             android:name=".BoxExercicioAndamento"
             android:exported="true" />
         <activity
-            android:name=".TelaInicioNOVA"
-            android:exported="true" />
-        <activity
             android:name=".telaPerfil"
 
             android:screenOrientation="portrait" />
         <activity
             android:name=".telaInfoExercicio"
-            android:parentActivityName=".HomeActivity"
+            android:parentActivityName=".telaInicio"
             android:screenOrientation="portrait" />
         <activity
             android:name=".telaAdicionarExercicio"
 
             android:screenOrientation="portrait"/>
-        <activity
-            android:name=".HomeActivity"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".telaEditarExercicio"
 
@@ -43,7 +37,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".telaConfiguracao"
-            android:parentActivityName=".HomeActivity"
+            android:parentActivityName=".telaInicio"
             android:screenOrientation="portrait" />
         <activity
             android:name=".telaInicio"

@@ -108,7 +108,7 @@ public class telaInicio extends AppCompatActivity {
                             @Override
                             public void onItemClick(View view, int position) {
                                 ExercicioAndamento exercicio = listaBancoExercicios.get( position );
-
+                                Log.i("Teste", String.valueOf(position));
                                 OpeninfoExercicio(view, exercicio);
                             }
                             @Override
@@ -129,10 +129,10 @@ public class telaInicio extends AppCompatActivity {
         Intent intent = new Intent(this, telaInfoExercicio.class);
         startActivity(intent);
     }
+
     public void OpeninfoExercicio(View view, ExercicioAndamento exercicioAndamento){
         Intent intent = new Intent(this, telaInfoExercicio.class);
         intent.putExtra("exercicio", exercicioAndamento);
-        Log.i("Posição", String.valueOf(view.getId()));
 
 
         startActivity(intent);

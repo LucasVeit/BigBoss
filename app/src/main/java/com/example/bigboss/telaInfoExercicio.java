@@ -13,6 +13,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.bigboss.DAO.ExercicioAndamentoDAO;
+import com.example.bigboss.DAO.ExercicioConcluidoDAO;
+import com.example.bigboss.DAO.UsuarioDAO;
+import com.example.bigboss.Model.ExercicioConcluido;
+import com.example.bigboss.Model.Usuario;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.example.bigboss.Model.ExercicioAndamento;
@@ -158,5 +162,59 @@ public class telaInfoExercicio extends AppCompatActivity {
         startActivity(intent);
         finish();
         overridePendingTransition(0, 0);
+    }
+
+    public void updateExercicio(View view){
+        ExercicioAndamentoDAO exercicioAndamentoDAO = new ExercicioAndamentoDAO(getApplicationContext());
+        exercicioAndamentoDAO.AtualizarExercicio(exercicioAndamento);
+        ExercicioConcluidoDAO exercicioConcluidoDAO = new ExercicioConcluidoDAO(getApplicationContext());
+        if(exercicioAndamento.getQuantidadeRealizada() < exercicioAndamento.getQuantidadeObjetivo()){
+            exercicioAndamento.setQuantidadeRealizada(exercicioAndamento.getQuantidadeRealizada() + 1);
+
+            Intent intent = new Intent(this, telaInfoExercicio.class);
+            intent.putExtra("exercicio", exercicioAndamento);
+            startActivity(intent);
+            finish();
+            overridePendingTransition(0, 0);
+            IncrementarXP(2);
+        }else{
+            ExercicioConcluido exercicioConcluido = new ExercicioConcluido(exercicioAndamento.getCodigo(), exercicioAndamento.getNome(), exercicioAndamento.getSerie(), exercicioAndamento.getMetrica(), exercicioAndamento.getQuantidadeMetrica(), exercicioAndamento.getQuantidadeObjetivo());
+            IncrementarXP(30);
+            exercicioAndamentoDAO.ExcluirExercicio(exercicioAndamento.getCodigo());
+            exercicioConcluidoDAO.InserirExercicio(exercicioConcluido);
+
+        }
+        Intent intent = new Intent(this, telaInfoExercicio.class);
+        intent.putExtra("exercicio", exercicioAndamento);
+        startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
+
+    }
+
+    public void IncrementarXP(int quantidade){
+        UsuarioDAO usuarioDAO = new UsuarioDAO(getApplicationContext());
+        Usuario usuario = usuarioDAO.buscarUsuario();
+
+        usuario.setXp(usuario.getXp() + quantidade);
+        if(usuario.getXp() >= usuario.getLevel() * 100){
+            usuario.setXp(usuario.getXp() -  usuario.getLevel() * 100);
+            usuario.setLevel(usuario.getLevel() + 1);
+
+            if(usuario.getLevel() <= 2)
+                usuario.setDivisao("Frango");
+            else if(usuario.getLevel() <= 5)
+                usuario.setDivisao("Junior");
+            else if(usuario.getLevel() <= 10)
+                usuario.setDivisao("Bombadinho");
+            else if(usuario.getLevel() <= 15)
+                usuario.setDivisao("Maromba");
+            else if(usuario.getLevel() <= 20)
+                usuario.setDivisao("Monstro");
+            else
+                usuario.setDivisao("BIG BOSS");
+        }
+        usuarioDAO.AtualizarUsuario(usuario);
+
     }
 }

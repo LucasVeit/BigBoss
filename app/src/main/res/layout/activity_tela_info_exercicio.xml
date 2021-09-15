@@ -197,6 +197,17 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/textInfoMetricaValor"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <ImageView
+            android:id="@+id/checkBox"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="18dp"
+            android:onClick="updateExercicio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nomeExercicio"
+            app:srcCompat="@drawable/check_circle" />
+
         <TextView
             android:id="@+id/textInfoMetricaValor"
             android:layout_width="wrap_content"

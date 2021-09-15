@@ -224,6 +224,7 @@ public class ExercicioAndamentoDAO {
         dados.put("sabado", Unbooleanizer(exercicioAndamento.isSabado()));
         String[] cod = {String.valueOf(exercicioAndamento.getCodigo())};
         escrita.update("ExercicioAndamento", dados, "codigo = ?", cod);
+
     }
 
     public void ExcluirExercicio(int codigoExercicio){
