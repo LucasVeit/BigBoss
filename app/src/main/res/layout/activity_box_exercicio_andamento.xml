@@ -14,7 +14,7 @@
         android:id="@+id/textNomeExercicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:text="Nome Exercício"
         android:textColor="@color/font"
@@ -75,26 +75,14 @@
         app:layout_constraintBottom_toTopOf="@+id/exercicioProgresso"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/checkBox"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/textExercicioProgresso"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textTempo"
-        app:srcCompat="@drawable/check_circle" />
-
     <TextView
         android:id="@+id/textTempo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
         android:text="7 dias restantes"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
