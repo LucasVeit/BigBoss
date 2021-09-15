@@ -35,7 +35,7 @@ public class telaEditarExercicio extends AppCompatActivity {
     TextInputLayout periodo;
 
 
-    BottomNavigationView bottomNavigationView;
+
 
     //Dropdown Menu
     TextInputLayout metrica;
@@ -50,7 +50,7 @@ public class telaEditarExercicio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_editar_exercicio);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getSupportActionBar().setTitle("Editar Exercício");
 
         //Reminder
@@ -94,23 +94,6 @@ public class telaEditarExercicio extends AppCompatActivity {
             }
         });
 
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.user) {
-                    telaPerfilBottomNavigation();
-                }
-                else if (item.getItemId() == R.id.home) {
-                    telaInicialBottomNavigation();
-                }
-                else if (item.getItemId() == R.id.help) {
-                    perguntasFrequentesBottomNavigation();
-                }
-
-                return false;
-            }
-        });
 
         exercicioAndamento = getIntent().getParcelableExtra("exercicio");
 
@@ -217,19 +200,13 @@ public class telaEditarExercicio extends AppCompatActivity {
         finish();
         overridePendingTransition(0, 0);
     }
-
-    public void telaPerfilBottomNavigation(){
-        Intent intent = new Intent(this, telaPerfil.class);
-        startActivity(intent);
-    }
-    public void perguntasFrequentesBottomNavigation(){
-        Intent intent = new Intent(this, TelaPerguntasFrequente.class);
-        startActivity(intent);
-    }
-    public void telaInicialBottomNavigation(){
+    public void telaInicial(View view){
+        //Intent intent = new Intent(this, telaInicio.class);
         Intent intent = new Intent(this, telaInicio.class);
         startActivity(intent);
     }
+
+
 
     public void ChangeState(View view){
         Button button;

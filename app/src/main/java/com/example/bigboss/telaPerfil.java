@@ -20,7 +20,7 @@ public class telaPerfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_perfil);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getSupportActionBar().setTitle("Perfil do Usuário");
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);

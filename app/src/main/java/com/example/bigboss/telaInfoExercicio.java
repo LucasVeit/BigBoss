@@ -32,29 +32,12 @@ public class telaInfoExercicio extends AppCompatActivity {
     TextView descricaoExercicio;
     ExercicioAndamento exercicioAndamento;
 
-    BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_info_exercicio);
 
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.user) {
-                    telaPerfilBottomNavigation();
-                }
-                else if (item.getItemId() == R.id.home) {
-                    telaInicialBottomNavigation();
-                }
-                else if (item.getItemId() == R.id.help) {
-                    perguntasFrequentesBottomNavigation();
-                }
-
-                return false;
-            }
-        });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Informação Exercício");
@@ -158,24 +141,7 @@ public class telaInfoExercicio extends AppCompatActivity {
         finish();
         overridePendingTransition(0, 0);
     }
-    public void telaPerfilBottomNavigation(){
-        Intent intent = new Intent(this, telaPerfil.class);
-        startActivity(intent);
-        finish();
-        overridePendingTransition(0, 0);
-    }
-    public void perguntasFrequentesBottomNavigation(){
-        Intent intent = new Intent(this, TelaPerguntasFrequente.class);
-        startActivity(intent);
-        finish();
-        overridePendingTransition(0, 0);
-    }
-    public void telaInicialBottomNavigation(){
-        Intent intent = new Intent(this, telaInicio.class);
-        startActivity(intent);
-        finish();
-        overridePendingTransition(0, 0);
-    }
+
 
     public void editarExercicio(View view){
         Intent intent = new Intent(this, telaEditarExercicio.class);

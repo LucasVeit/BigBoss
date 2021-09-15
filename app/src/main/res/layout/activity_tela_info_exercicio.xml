@@ -179,10 +179,11 @@
             android:id="@+id/textExercicioProgresso1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="3dp"
             android:text="xx/xx"
             android:textColor="@color/font"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="italic"
             app:layout_constraintBottom_toTopOf="@+id/exercicioProgresso1"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -291,21 +292,21 @@
             android:layout_width="0dp"
             android:layout_height="38dp"
             android:layout_marginStart="48dp"
+
+
             android:layout_marginTop="32dp"
-
-
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/custom_button_grey"
             android:onClick="excluirExercicio"
             android:text="Excluir"
             android:textAllCaps="false"
             android:textColor="@color/font"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonEditar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDescricaoExercicio" />
+            app:layout_constraintTop_toBottomOf="@+id/view" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonEditar"
@@ -313,33 +314,22 @@
             android:layout_height="38dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
+
+
             android:layout_marginEnd="48dp"
-
-
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/custom_button_blue"
             android:onClick="editarExercicio"
             android:text="Editar"
             android:textAllCaps="false"
             android:textColor="@color/icon"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buttonExcluir"
-            app:layout_constraintTop_toBottomOf="@+id/textDescricaoExercicio" />
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@color/darkblue"
-            android:paddingTop="15dp"
-            app:itemIconTint="@color/icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/nav_bar_items" />
+            app:layout_constraintStart_toEndOf="@+id/buttonExcluir"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

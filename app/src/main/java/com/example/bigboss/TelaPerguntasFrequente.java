@@ -19,7 +19,7 @@ public class TelaPerguntasFrequente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_perguntas_frequente);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getSupportActionBar().setTitle("Perguntas Frequentes");
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);

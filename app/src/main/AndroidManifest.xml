@@ -20,7 +20,7 @@
             android:exported="true" />
         <activity
             android:name=".telaPerfil"
-            android:parentActivityName=".HomeActivity"
+
             android:screenOrientation="portrait" />
         <activity
             android:name=".telaInfoExercicio"
@@ -28,17 +28,18 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".telaAdicionarExercicio"
-            android:parentActivityName=".HomeActivity" />
+
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".telaEditarExercicio"
-            android:parentActivityName=".HomeActivity"
+
             android:screenOrientation="portrait" />
         <activity
             android:name=".TelaPerguntasFrequente"
-            android:parentActivityName=".HomeActivity"
+
             android:screenOrientation="portrait" />
         <activity
             android:name=".telaConfiguracao"
@@ -46,7 +47,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".telaInicio"
-            android:parentActivityName=".HomeActivity"
+
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"

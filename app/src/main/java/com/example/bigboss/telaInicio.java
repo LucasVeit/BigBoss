@@ -80,7 +80,7 @@ public class telaInicio extends AppCompatActivity {
         expMax.setText(String.valueOf(usuario.getLevel() * 100));
 
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         listaExercicios.setAdapter(adaptador);
 
         getSupportActionBar().setTitle("Big Boss");
