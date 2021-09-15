@@ -15,7 +15,7 @@
 
         <View
             android:id="@+id/viewDays"
-            android:layout_width="390dp"
+            android:layout_width="0dp"
             android:layout_height="82dp"
             android:layout_marginTop="360dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -243,46 +243,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDiasRestantes" />
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/view_style"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewDays" />
-
 
         <TextView
             android:id="@+id/textDescricao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
             android:text="Descrição"
             android:textColor="@color/font"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewDays" />
 
         <TextView
             android:id="@+id/textDescricaoExercicio"
             android:layout_width="393dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="10dp"
             android:text='Nesse campo esta a descrição do exercício que o usuário forneceu, podendo escrever detalhes como "cuidar com a coluna" ou "caso sentir dor no ombro, parar de fazer para descansar"'
             android:textAlignment="center"
             android:textColor="@color/font"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/view"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDescricao" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -304,16 +290,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonEditar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view" />
+            app:layout_constraintTop_toBottomOf="@+id/textDescricaoExercicio" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonEditar"
             android:layout_width="0dp"
             android:layout_height="38dp"
             android:layout_marginStart="32dp"
+
+
             android:layout_marginTop="32dp"
-
-
             android:layout_marginEnd="48dp"
             android:layout_marginBottom="32dp"
             android:background="@drawable/custom_button_blue"
@@ -325,7 +311,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonExcluir"
-            app:layout_constraintTop_toBottomOf="@+id/view" />
+            app:layout_constraintTop_toBottomOf="@+id/textDescricaoExercicio" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

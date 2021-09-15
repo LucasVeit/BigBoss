@@ -72,7 +72,7 @@ public class AdapterExercicioAndamento extends RecyclerView.Adapter<AdapterExerc
             tempo = itemView.findViewById(R.id.textTempo);
             exercicioProgresso = itemView.findViewById(R.id.textExercicioProgresso);
             progressoExercicio = itemView.findViewById(R.id.exercicioProgresso);
-            checkbox = itemView.findViewById(R.id.checkBox);
+
         }
     }
 }

@@ -133,7 +133,11 @@ public class telaInfoExercicio extends AppCompatActivity {
             button.setBackground(getResources().getDrawable(R.drawable.custom_button_days_blue));
             button.setTextColor(getResources().getColor(R.color.icon));
         }
+
+
     }
+
+
 
     public void perguntasFrequentes(View view){
         Intent intent = new Intent(this, TelaPerguntasFrequente.class);

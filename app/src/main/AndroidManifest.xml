@@ -24,7 +24,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".telaInfoExercicio"
-            android:parentActivityName=".HomeActivity"
+
             android:screenOrientation="portrait" />
         <activity
             android:name=".telaAdicionarExercicio"
