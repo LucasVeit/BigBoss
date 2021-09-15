@@ -15,10 +15,9 @@
         <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/drawable/selector_button.xml" value="0.1935185185185185" />
         <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/drawable/view_style.xml" value="0.3402777777777778" />
         <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/activity_box_exercicio_andamento.xml" value="0.33" />
-        <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/activity_box_exercicio_concluido.xml" value="0.32592592592592595" />
         <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/activity_home.xml" value="0.36102564102564105" />
         <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/activity_main.xml" value="0.36102564102564105" />
-        <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/activity_tela_adicionar_exercicio.xml" value="0.2" />
+        <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/activity_tela_adicionar_exercicio.xml" value="0.36102564102564105" />
         <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/activity_tela_configuracao.xml" value="0.36102564102564105" />
         <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/activity_tela_editar_exercicio.xml" value="0.18" />
         <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/activity_tela_info_exercicio.xml" value="0.33" />
@@ -28,6 +27,7 @@
         <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/activity_tela_perguntas_frequentes.xml" value="0.36666666666666664" />
         <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/activity_teste_expandable.xml" value="0.32592592592592595" />
         <entry key="..\:/OneDrive/CC/AndroidStudio/BigBoss/app/src/main/res/layout/dropdownitem.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/leona/AndroidStudioProjects/BigBoss/app/src/main/res/layout/activity_box_exercicio_andamento.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/leona/AndroidStudioProjects/BigBoss/app/src/main/res/layout/activity_tela_adicionar_exercicio.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/leona/AndroidStudioProjects/BigBoss/app/src/main/res/layout/activity_tela_configuracao.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/leona/AndroidStudioProjects/BigBoss/app/src/main/res/layout/activity_tela_editar_exercicio.xml" value="0.36666666666666664" />
@@ -37,6 +37,7 @@
         <entry key="..\:/Users/leona/AndroidStudioProjects/BigBoss/app/src/main/res/layout/activity_tela_perguntas_frequentes.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/leona/AndroidStudioProjects/BigBoss/app/src/main/res/layout/activity_teste_expandable.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/leona/AndroidStudioProjects/BigBoss/app/src/main/res/layout/dropdownitem.xml" value="0.1" />
+        <entry key="..\:/Users/leona/AndroidStudioProjects/BigBoss/app/src/main/res/layout/popup.xml" value="0.33" />
         <entry key="..\:/Users/leona/AndroidStudioProjects/BigBoss/app/src/main/res/layout/tela_perguntas_frequente.xml" value="0.5" />
         <entry key="..\:/Users/leona/AndroidStudioProjects/BigBoss/app/src/main/res/menu/nav_bar_items.xml" value="0.1814814814814815" />
       </map>

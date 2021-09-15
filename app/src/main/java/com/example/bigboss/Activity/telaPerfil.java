@@ -1,6 +1,7 @@
 package com.example.bigboss.Activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.bigboss.Controller.AdapterExercicioConcluido;
@@ -29,6 +32,10 @@ public class telaPerfil extends AppCompatActivity {
     TextView level;
     AdapterExercicioConcluido adaptador;
 
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    private EditText novoNome;
+    private Button botaoCancelar, botaoSalvar;
     RecyclerView recyclerView;
     List<ExercicioConcluido> listaBancoExercicios = new ArrayList<>();
     ExercicioConcluidoDAO exercicioConcluidoDAO;
@@ -89,5 +96,33 @@ public class telaPerfil extends AppCompatActivity {
     public void telaInicialBottomNavigation(){
         Intent intent = new Intent(this, telaInicio.class);
         startActivity(intent);
+    }
+
+    public void createNewContentDialog(View view){
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View popupView = getLayoutInflater().inflate(R.layout.popup, null);
+        novoNome = (EditText) popupView.findViewById(R.id.novoNome);
+
+        botaoCancelar = (Button) popupView.findViewById(R.id.BotaoCancelar);
+        botaoSalvar = (Button) popupView.findViewById(R.id.BotaoSalvar);
+
+        dialogBuilder.setView(popupView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        botaoCancelar.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //funcionalidade do botao
+            }
+        });
+
+        botaoSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 }
