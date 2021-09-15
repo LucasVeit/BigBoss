@@ -75,7 +75,7 @@ public class telaInicio extends AppCompatActivity {
         nomeUsuario.setText(usuario.getNome());
         divisao.setText("Divisão " + String.valueOf(usuario.getDivisao()));
         barraNivel.setProgress((100*usuario.getXp())/usuario.getLevel()*100);
-        level.setText(String.valueOf(usuario.getLevel()));
+        level.setText("Leval " + String.valueOf(usuario.getLevel()));
         exp.setText(String.valueOf(usuario.getXp()));
         expMax.setText(String.valueOf(usuario.getLevel() * 100));
 
