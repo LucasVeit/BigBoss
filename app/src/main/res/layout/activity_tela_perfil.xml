@@ -89,6 +89,7 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
+        android:onClick="createNewContentDialog"
         app:layout_constraintStart_toEndOf="@+id/nomeUsuario2"
         app:layout_constraintTop_toTopOf="@+id/nomeUsuario2"
         app:srcCompat="@drawable/edit" />
